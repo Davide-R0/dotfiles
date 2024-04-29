@@ -1,0 +1,14 @@
+To configure typescript language server, add a tsconfig.json or jsconfig.json to the root of your project.
+
+Here's an example that disables type checking in JavaScript files.
+
+{
+  "compilerOptions": {
+    "module": "commonjs",
+    "target": "es6",
+    "checkJs": false
+  },
+  "exclude": [
+    "node_modules"
+  ]
+}

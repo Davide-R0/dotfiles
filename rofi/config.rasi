@@ -1,0 +1,38 @@
+configuration {
+	modi: "drun,run,filebrowser,window,keys";
+	cycle: true;
+	font: "monospace 10";
+	/*combi-modi: "window,drun,ssh";*/
+
+	display-run: "Run";
+	display-drun: "Apps";
+	display-window: "Windows";
+	display-keys: "Keys";
+	display-filebrowser: "Files";
+
+	show-icons: true;
+	icon-theme: "Vivid-Dark-Icons";
+	
+	/*---------- History and Sorting ----------*/
+	disable-history: false;
+	sorting-method: "normal";
+	max-history-size: 25;
+    
+    /*rofi.terminal: terminator;*/
+
+	click-to-exit: true;
+	steal-focus: false;
+}
+
+@theme "gruvbox-dark"
+
+/*****----- Main Window -----*****/
+window {
+    margin:                      0px;
+    padding:                     20px;
+    border:                      0px solid;
+    border-radius:               30px;
+}
+
+
+

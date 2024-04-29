@@ -1,0 +1,3 @@
+# Picom
+
+In `~/.config/picom/`

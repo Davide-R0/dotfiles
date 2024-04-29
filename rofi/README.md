@@ -1,0 +1,3 @@
+# Rofi
+
+In `~/.config/rofi/`

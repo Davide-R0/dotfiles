@@ -1,0 +1,3 @@
+# Tmux
+
+In `~/.config/tmux/`

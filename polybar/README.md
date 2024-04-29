@@ -1,0 +1,3 @@
+# Polybar
+
+In `~/.config/polybar/`
