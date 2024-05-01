@@ -7,14 +7,14 @@
 #
 # To get a config file with the same key positions, but for your current
 # layout, use the i3-config-wizard
-#
+
+# Mod key set to Alt key
 set $mod Mod1
 
 # Font for window titles. Will also be used by the bar unless a different font
 # is used in the bar {} block below.
 font pango:monospace 8
-#8
-#font pango: Terminus 11px
+
 # This font is widely installed, provides lots of unicode glyphs, right-to-left
 # text rendering and scalability on retina/hidpi displays (thanks to pango).
 #font pango:DejaVu Sans Mono 11
@@ -31,11 +31,9 @@ exec --no-startup-id dex --autostart --environment i3
 # screen before suspend. Use loginctl lock-session to lock your screen.
 exec --no-startup-id xss-lock --transfer-sleep-lock -- i3lock --nofork
 
-
 # NetworkManager is the most popular way to manage wireless networks on Linux,
 # and nm-applet is a desktop environment-independent system tray GUI for it.
-exec --no-startup-id nm-applet
-#Compton sturtup
+#exec --no-startup-id nm-applet
 
 # Use pactl to adjust volume in PulseAudio.
 set $refresh_i3status killall -SIGUSR1 i3status
@@ -46,18 +44,11 @@ bindsym XF86AudioMicMute exec --no-startup-id pactl set-source-mute @DEFAULT_SOU
 
 # use these keys for focus, movement, and resize directions when reaching for
 # the arrows is not convenient
-#changed set
+# changed set in vim-like keybindings
 set $left h
 set $up j
 set $down k
 set $right l
-
-# modificati i movimenti in hjkl da jkl;
-# l'orrizontal split passato da h ad o
-#set $up l
-#set $down k
-#set $left j
-#set $right semicolon 
 
 # use Mouse+Mod1 to drag floating windows to their wanted position
 floating_modifier Mod1
@@ -69,27 +60,24 @@ tiling_drag modifier titlebar
 # start a terminal
 bindsym Mod1+Return exec i3-sensible-terminal
 
-#tmux
+# tmux default session sturtup 
 set $tmux exec --no-startup-id "tmux has-session -t Default && i3-sensible-terminal -e 'tmux attach -t Default' || i3-sensible-terminal -e 'tmux new -s Default'"
 bindsym Mod1+t $tmux
 
 # kill focused window
 bindsym Mod1+Shift+q kill
 
-# start dmenu (a program launcher)
-# defoult:
-#bindsym Mod1+d exec --no-startup-id dmenu_run
 # A more modern dmenu replacement is rofi:
-# sudo apt install rofi
 bindsym Mod1+d exec "rofi -show drun"
-#-modi drun,run -show drun"
+
+# Start dmenu (a program launcher)
+#bindsym Mod1+d exec --no-startup-id dmenu_run
 # There also is i3-dmenu-desktop which only displays applications shipping a
 # .desktop file. It is a wrapper around dmenu, so you need that installed.
 # bindsym Mod1+d exec --no-startup-id i3-dmenu-desktop
 
 #Color background i3 status bar
 set $colBackBar #080808
-#282828
 
 # change focus
 bindsym Mod1+$left focus left
@@ -144,15 +132,18 @@ bindsym Mod1+a focus parent
 
 # move the currently focused window to the scratchpad
 # for multiple scratchpad 
-bindsym Mod1+Shift+minus move scratchpad
-# NOTA il secondo scratchpad può conteere una sola finestra per qualche motivo
-bindsym Mod1+Shift+plus mark "beta", move scratchpad
-
+# cycle through all the scratchpad
+bindsym Mod1+Shift+m move scratchpad 
+# those scratchpads can have only one item 
+bindsym Mod1+Shift+plus mark "alpha", move scratchpad
+bindsym Mod1+Shift+minus mark "beta", move scratchpad
 
 # Show the next scratchpad window or hide the focused scratchpad window.
 # If there are multiple scratchpad windows, this command cycles through them.
-bindsym Mod1+minus scratchpad show
-bindsym Mod1+plus [con_mark="beta"] scratchpad show
+bindsym Mod1+m scratchpad show
+# those scratchpad can have only one item
+bindsym Mod1+plus [con_mark="alpha"] scratchpad show
+bindsym Mod1+minus [con_mark="beta"] scratchpad show
 
 # Define names for default workspaces for which we configure key bindings later on.
 # We use variables to avoid repeating the names in multiple places.
@@ -193,8 +184,10 @@ bindsym Mod1+Shift+0 move container to workspace number $ws10
 
 # reload the configuration file
 bindsym Mod1+Shift+c reload
+
 # restart i3 inplace (preserves your layout/session, can be used to upgrade i3)
 bindsym Mod1+Shift+r restart
+
 # exit i3 (logs you out of your X session)
 bindsym Mod1+Shift+e exec "i3-nagbar -t warning -m 'You pressed the exit shortcut. Do you really want to exit i3? This will end your X session.' -B 'Yes, exit i3' 'i3-msg exit'"
 
@@ -225,26 +218,25 @@ mode "resize" {
 
 bindsym Mod1+r mode "resize"
 
-#Polybar exec
-#exec_always pkill polybar && polybar
+# Polybar initialization 
 exec_always --no-startup-id $HOME/.config/polybar/launch.sh
-#exec_always --no-startup-id p-msg cmd quit && polybar
 
-#$HOME/.config/polybar/launch.sh
-
-# Start i3bar to display a workspace bar (plus the system information i3status
-# finds out, if available)
+# Better polybar 
+# Start i3bar to display a workspace bar (plus the system information i3status finds out, if available)
 #bar {
+#   # Bar initialization 
 #   status_command i3status -c /home/davide/.config/i3/i3status.conf
-#	i3bar_command i3bar --transparency
+#	
+#   # Bar trasparency
+#   i3bar_command i3bar --transparency
 #    
-#    font pango: sans 10
+#   # Bar font 
+#   font pango: sans 10
 #	
-#	# separator_symbol " ¦ "
+#	# Separator symbol, other possibility: " ¦ ", "❰ ", " ❱ "
 #	separator_symbol " ❰ " 
-#	# ❰❱
 #	
-#	#Spazio bordo destra
+#	# Padding right bar border
 #	padding 0 4px 0 0
 #
 #	colors {
@@ -259,9 +251,6 @@ exec_always --no-startup-id $HOME/.config/polybar/launch.sh
 #		  #separator #d0d0d0
 #		  #separator #b2b2b2
 #
-## 4c7899  
-## 285577 
-## 222222
 #
 #        focused_workspace  $colBackBar $colBackBar #00ff00
 #        active_workspace   #666666 #5f676u #666666
@@ -280,62 +269,60 @@ exec_always --no-startup-id $HOME/.config/polybar/launch.sh
 # in ~/.config/i3/config (or $XDG_CONFIG_HOME/i3/config if set) or
 # ~/.i3/config.
 #
-# Please remove the following exec line:
 #######################################################################
 
-#exec i3-config-wizard
-
+#Picom initialization
 exec_always --no-startup-id picom --config ~/.config/picom/picom.conf
+# For compton 
+#exec_always --no-startup-id /usr/bin/compton --config ~/.config/compton.conf 
 
-#exec --no-startup-id /usr/bin/compton --config ~/.config/compton.conf 
-#exec_always --no-startup-id compton ---xrender-sync-fence
-#xrandr screen manager
+# xrandr screen manager (if needed)
 #exec_always --no-startup-id xrandr --dpi 94
 
-#wallpapers
+#wallpapers with nitrogen 
 exec nitrogen --restore
 
-#border window
+# Border window
 #for_window [class=".*"] border pixel 2
 default_border pixel 0
 # Activate smart borders (always)
 smart_borders on
-#border_radius 2
-# enable floating mode for all XTerm windows
+
+# To enable floating mode for a certain type of windows 
+# Change XTerm with what is needed
 #for_window [class="XTerm"] floating enable
+
 # Inner gaps for all windows: space between two adjacent windows (or split containers).
 gaps inner 8px 
-#7
 # Outer gaps for all windows: ADDITIONAL space along the screen edges.
 gaps outer 0px
+# Bottom gaps (due to polybar)
 gaps bottom -4px
 
-#border_radius 2
-
-#for floating window
+# for floating window
 for_window [floating] border pixel 0
-#change border window color (last color)
+# change border window color (last color)
 #client.focused #ffffff00 #1d2021 #ffffff00 #2e9ef4 #1d2021 
-#CC
-#ffffff00
 title_align center
-#defoult:  #4c7899 #285577 ....  #4c7899 
 
 # Personalized command (with win key)
 bindsym Mod4+o exec qutebrowser
-bindsym Mod4+p exec --no-startup-id terminator -e 'nnn -e'
+bindsym Mod4+p exec --no-startup-id i3-sensible-terminal -e 'source .zshrc && nnn -e' 
 bindsym Mod4+k exec brave-bin
 bindsym Mod4+l exec spacefm
+# to deactivate trasparency (to reactivate Alt+Shift+r)
 bindsym Mod4+u exec pkill picom
-bindsym Mod4+n exec --no-startup-id terminator -e nvim
+# Neovim schortcut
+bindsym Mod4+n exec --no-startup-id i3-sensible-terminal -e nvim
+
+#Aggiungere la possibilità di aprire velocemente una chat con mistral
+#bindsym Mod4+y exec --no-startup-id i3-sensible-terminal -e 'ollama serve' && i3-sensible-terminal -e 'ollama run mistral'
 
 #Screenshot:
 #Partial screen 
 bindsym Mod4+Print exec --no-startup-id maim -s "/home/$USER/Pictures/screenshot/screenshot_`date +"%d_%b_%T"`.png"
 #Full screen 
 bindsym Print exec --no-startup-id maim "/home/$USER/Pictures/screenshot/screenshot_`date +"%d_%b_%T"`.png"
-
-#bindsym Mod4+l exec --no-sturtup-id 
 
 #tmux multiple session <Alt + #>
 set $tmux1 exec --no-startup-id "tmux has-session -t 1 && i3-sensible-terminal -e 'tmux attach -t 1' || i3-sensible-terminal -e 'tmux new -s 1'"
