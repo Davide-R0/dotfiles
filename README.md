@@ -47,7 +47,7 @@ Better Picom (fork of compton) then Compton. Picom allow round window corner.
 ```
 ###### Compton
 ```
-~/.config/compton.conf (for compton)
+~/.config/compton.conf
 ```
 
 ## Polybar - i3-bar
@@ -63,7 +63,7 @@ Better Polybar then i3-bar.
 
 ###### i3-bar
 ```
-~/.config/i3/....
+~/.config/i3/...
 ```
 
 ## Rofi - dmenu
@@ -121,5 +121,3 @@ All in one text editor.
 
 ## Userfull programm
 
----
-`Davide Rinarelli`
