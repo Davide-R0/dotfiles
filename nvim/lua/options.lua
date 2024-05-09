@@ -42,6 +42,8 @@ set.scrolloff = 5 --lascia sempre un offset di righe
 -- Setting backspace key like delite
 --set.backspace = "indent", "eol", "start"
 
+-- 
+
 -- Autoindentation
 set.autoindent = true
 
@@ -88,9 +90,3 @@ vim.cmd[[
 ]]
 
 
---Set colorscheme default
--- vim command
---vim.api.nvim_cmd({
---  cmd = 'colorscheme',
---  args = {'gruvbox'}
---}, {})

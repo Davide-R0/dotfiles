@@ -136,9 +136,10 @@ Plug 'hrsh7th/vim-vsnip'
 "usare questa libreria \usepackage[backend=bibtex]{biblatex} per la bibliografia
 Plug 'lervag/vimtex'
 "Plug 'jakewvincent/texmagic.nvim'
-"
+
 "markdown preview (install nodejs and yarn)
 Plug 'iamcco/markdown-preview.nvim', { 'do': 'cd app && npx --yes yarn install' }
+Plug 'MeanderingProgrammer/markdown.nvim'
 
 " Git plugin
 Plug 'lewis6991/gitsigns.nvim'
@@ -163,22 +164,30 @@ Plug 'David-Kunz/gen.nvim'
 "Per telescope
 Plug 'nvim-telescope/telescope-ui-select.nvim'
 
+"File explorer
+Plug 'stevearc/oil.nvim'
+
+
+Plug 'lukas-reineke/headlines.nvim'
+
 "Grammar tool
 "Plug 'dpelle/vim-LanguageTool'
 call plug#end()
 
 " ------Configuration Files------- "
 
+lua require('plug.oil')
+
 lua require('plug.gen')
+
 lua require('openscad')
 lua require('plug.openscad')
 
-
 " vimtex configuration file
-lua require('plug.vimtex_conf')
+lua require('plug.vimtex')
 
 " Telescope configuration file
-lua require('plug.telescope.telescope_conf')
+lua require('plug.telescope')
 
 " Install clangd per c/c++
 " Let clangd fully control code completion
@@ -205,16 +214,16 @@ let g:vsnip_snippet_dir = "/home/davide/.config/nvim/snippets/" "directory for s
 
 lua require('plug.clangd')
 
+"Markdowns
+"lua require('plug.markdown')
+lua require('plug.headlines')
 "lua require('plug.undotree')
 
 " DEVE stare dopo i plugin
 colorscheme gruvbox
 set background=dark    " Setting dark mode
 
-" For spelling checking
-"set spell
-nnoremap <leader>it :setlocal spell spelllang=it <cr>
-nnoremap <leader>en :setlocal spell spelllang=en <cr>
+
 
 " For Vexplore
 nnoremap <leader><leader>f :Vexplore <cr>
@@ -230,11 +239,6 @@ let g:blamer_enabled = 1
 " %a is the day of week, in case it's needed
 let g:blamer_date_format = '%e %b %Y'
 "highlight Blamer guifg=darkorange
-
-"prnter setup
-nnoremap <leader><leader><leader>pp :r !echo; lpstat -p \| sed 's/printer //g' \| sed 's/is idle.  enabled since.*//g'; echo<cr>
-nnoremap <leader><leader><leader>ph :w<cr>:!lpoptions -d HP_Smart_Tank_7000<cr>:!lp -n 1 -o media=a4 -o sides=two-sided-long-edge %<cr><cr>
-
 "netrw config
 let g:netrw_liststyle = 3
 let g:netrw_browse_split = 3

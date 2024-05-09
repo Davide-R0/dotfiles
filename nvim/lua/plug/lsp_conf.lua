@@ -23,6 +23,29 @@ lspconfig.html.setup({
 lspconfig.openscad_lsp.setup({
   capabilities = lsp_capabilities,
 })        -- openscad
+lspconfig.rust_analyzer.setup({
+    --capabilities = lsp_capabilities,
+    on_attach = on_attach,
+    settings = {
+        ["rust-analyzer"] = {
+            imports = {
+                granularity = {
+                    group = "module",
+                },
+                prefix = "self",
+            },
+            cargo = {
+                buildScripts = {
+                    enable = true,
+                },
+            },
+            procMacro = {
+                enable = true
+            },
+        }
+    }
+})        -- rust
+
 lspconfig.ltex.setup({
   capabilities = lsp_capabilities,
   --lang = { "it" },  
@@ -59,49 +82,6 @@ lspconfig.fortls.setup({
 lspconfig.asm_lsp.setup({
   capabilities = lsp_capabilities,
 })     -- assembly
-
-
---lspconfig.lua_ls.setup({
---  capabilities = lsp_capabilities,
---})         -- Lua (la parte aggiunta serve per scrivere plugin)
---[=====[ 
-  on_init = function(client)
-  local path = client.workspace_folders[1].name
-    if not vim.loop.fs_stat(path..'/.luarc.json') and not vim.loop.fs_stat(path..'/.luarc.jsonc') then
-      client.config.settings = vim.tbl_deep_extend('force', client.config.settings, {
-        Lua = {
-          runtime = {
-            -- Tell the language server which version of Lua you're using
-            -- (most likely LuaJIT in the case of Neovim)
-            version = 'LuaJIT'
-          },
-          -- Make the server aware of Neovim runtime files
-          workspace = {
-            checkThirdParty = false,
-            library = {
-              vim.env.VIMRUNTIME
-              -- "${3rd}/luv/library"
-              -- "${3rd}/busted/library",
-            }
-            -- or pull in all of 'runtimepath'. NOTE: this is a lot slower
-            -- library = vim.api.nvim_get_runtime_file("", true)
-          }
-        }
-      })
-
-      client.notify("workspace/didChangeConfiguration", { settings = client.config.settings })
-    end
-    return true
-  end--]=====]
-
-
---lspconfig.rust_analyzer.setup {
-  -- Server-specific settings. See `:help lspconfig-setup`
-  --settings = {
-  --  ['rust-analyzer'] = {},
-  --},
---}
-
 
 -- Global mappings.
 -- See `:help vim.diagnostic.*` for documentation on any of the below functions
@@ -141,44 +121,3 @@ vim.api.nvim_create_autocmd('LspAttach', {
   end,
 })
 
---[=====[ 
-vim.cmd[[
-if executable('pylsp')
-    " pip install python-lsp-server
-    au User lsp_setup call lsp#register_server({
-        \ 'name': 'pylsp',
-        \ 'cmd': {server_info->['pylsp']},
-        \ 'allowlist': ['python'],
-        \ })
-endif
-
-function! s:on_lsp_buffer_enabled() abort
-    setlocal omnifunc=lsp#complete
-    setlocal signcolumn=yes
-    if exists('+tagfunc') | setlocal tagfunc=lsp#tagfunc | endif
-    nmap <buffer> gd <plug>(lsp-definition)
-    nmap <buffer> gs <plug>(lsp-document-symbol-search)
-    nmap <buffer> gS <plug>(lsp-workspace-symbol-search)
-    nmap <buffer> gr <plug>(lsp-references)
-    nmap <buffer> gi <plug>(lsp-implementation)
-    nmap <buffer> gt <plug>(lsp-type-definition)
-    nmap <buffer> <leader>rn <plug>(lsp-rename)
-    nmap <buffer> [g <plug>(lsp-previous-diagnostic)
-    nmap <buffer> ]g <plug>(lsp-next-diagnostic)
-    nmap <buffer> K <plug>(lsp-hover)
-    nnoremap <buffer> <expr><c-f> lsp#scroll(+4)
-    nnoremap <buffer> <expr><c-d> lsp#scroll(-4)
-
-    let g:lsp_format_sync_timeout = 1000
-    autocmd! BufWritePre *.rs,*.go call execute('LspDocumentFormatSync')
-    
-    " refer to doc to add more commands
-endfunction
-
-augroup lsp_install
-    au!
-    " call s:on_lsp_buffer_enabled only for languages that has the server registered.
-    autocmd User lsp_buffer_enabled call s:on_lsp_buffer_enabled()
-augroup END
-]]
---]=====]

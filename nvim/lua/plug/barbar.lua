@@ -10,10 +10,10 @@ require'barbar'.setup {
 
   -- Automatically hide the tabline when there are this many buffers left.
   -- Set to any value >=0 to enable.
-  auto_hide = true,
+  --auto_hide = true,
 
   -- Enable/disable current/total tabpages indicator (top right corner)
-  tabpages = true,
+  --tabpages = true,
 
   -- Enables/disable clickable tabs
   --  - left-click: go to buffer
