@@ -2,6 +2,7 @@
 
 Dotfiles and system configuration for GNU/linux 
 
+
 There will be even a basic usage explanation of all the tools.
 
 > There are still many things to fix.
@@ -80,8 +81,13 @@ Better Rofi then dmenu.
 ~/.config/...
 ```
 
-## Terminator (to upgrade with xterm o rxvt-unicode)
+## Terminal Emulator (to upgrade with xterm o rxvt-unicode)
 Terminal emulator.
+
+###### Kitty
+```
+~/.config/kitty/...
+```
 
 ###### Terminator
 Using the default GUI theme customizer
