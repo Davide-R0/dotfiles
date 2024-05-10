@@ -1,0 +1,7 @@
+app-text/texlive context extra graphics png science 
+# required by dev-texlive/texlive-context-2021::gentoo
+# required by app-text/texlive-2021-r1::gentoo[context]
+# required by @selected
+# required by @world (argument)
+>=app-text/texlive-core-2021-r7 xetex
+
