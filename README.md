@@ -97,9 +97,14 @@ Using the default GUI theme customizer
 .Xresources
 ```
 
-## Zsh
-Terminal highly customizable.
-- powerlevel 10k personalization
+## Terminal 
+### Bash
+``` shell
+~/.bashrc
+```
+
+### Zsh 
+Terminal highly customizable. Powerlevel 10k personalization
 
 ###### Zsh 
 ```

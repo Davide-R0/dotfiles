@@ -1,0 +1,6 @@
+# Gen neovim
+
+```
+:Gen
+```
+
