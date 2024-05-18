@@ -2,7 +2,6 @@
 
 Dotfiles and system configuration for GNU/linux 
 
-
 There will be even a basic usage explanation of all the tools.
 
 > There are still many things to fix.
