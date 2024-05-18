@@ -5,8 +5,11 @@ local set = vim.opt
 set.backup = false 
 set.swapfile = false 
 -- undoo save
-set.undodir = os.getenv("HOME") .. "/.vim/undodir"
+set.undodir = os.getenv("HOME") .. "/.config/undodir/"
 set.undofile = true
+
+-- for obsidian preview
+set.conceallevel = 1
 
 -- Number line option
 set.nu = true
@@ -41,8 +44,6 @@ set.scrolloff = 5 --lascia sempre un offset di righe
 
 -- Setting backspace key like delite
 --set.backspace = "indent", "eol", "start"
-
--- 
 
 -- Autoindentation
 set.autoindent = true

@@ -1,10 +1,19 @@
-
+----------------------------------------------------------
+--                                                      --
+--  ███╗   ██╗███████╗ ██████╗ ██╗   ██╗██╗███╗   ███╗  --
+--  ████╗  ██║██╔════╝██╔═══██╗██║   ██║██║████╗ ████║  --
+--  ██╔██╗ ██║█████╗  ██║   ██║██║   ██║██║██╔████╔██║  --
+--  ██║╚██╗██║██╔══╝  ██║   ██║╚██╗ ██╔╝██║██║╚██╔╝██║  --
+--  ██║ ╚████║███████╗╚██████╔╝ ╚████╔╝ ██║██║ ╚═╝ ██║  --
+--  ╚═╝  ╚═══╝╚══════╝ ╚═════╝   ╚═══╝  ╚═╝╚═╝     ╚═╝  --
+--                                                      --
+----------------------------------------------------------
 
 require('options')
 require('keymap')
 
 --filetype plugin indent on 
---set clipboard+=unnamedplus
+vim.cmd [[set clipboard+=unnamedplus]]
 --set signcolumn=auto:1
 
 local vim = vim
@@ -17,6 +26,10 @@ local Plug = vim.fn['plug#']
 -- - Avoid using standard Vim directory names like 'plugin'
 vim.call('plug#begin', '~/.local/share/nvim/plugged')
 -- Install with `:PlugInstall`
+
+-- startup page
+Plug 'mhinz/vim-startify'
+--Plug 'startup-nvim/startup.nvim'
 
 -- Powerline https://github.com/itchyny/lightline.vim
 --Plug 'itchyny/lightline.vim'
@@ -55,10 +68,12 @@ Plug 'morhetz/gruvbox'
 -- https://github.com/nvim-telescope/telescope.nvim
 -- Telescope plugin
 Plug 'nvim-lua/plenary.nvim'
-Plug('nvim-telescope/telescope.nvim', { ["tag"] = '0.1.5' })
--- Media preview supporting
+Plug('nvim-telescope/telescope.nvim', { ["tag"] = '0.1.6' })
 Plug 'nvim-lua/popup.nvim'
-Plug 'nvim-telescope/telescope-media-files.nvim'
+-- Media preview supporting
+Plug 'nvim-telescope/telescope-media-files.nvim' -- Need: Chafa
+-- For Telescope gen (AI assistant)
+Plug 'nvim-telescope/telescope-ui-select.nvim'
 
 -- https://github.com/nvim-treesitter/nvim-treesitter
 -- Hilighting of different programming linguage
@@ -84,9 +99,6 @@ Plug 'neovim/nvim-lspconfig'
 Plug 'hrsh7th/cmp-vsnip'
 Plug 'hrsh7th/vim-vsnip'
 
---fortrain
---Plug 'rudrab/vimf90'
-
 -- Latex preview 
 Plug 'lervag/vimtex'
 --Plug 'jakewvincent/texmagic.nvim'
@@ -96,34 +108,36 @@ Plug('iamcco/markdown-preview.nvim', { ["do"] = 'cd app && npx --yes yarn instal
 -- headlines markdowns
 Plug 'MeanderingProgrammer/markdown.nvim'
 Plug 'lukas-reineke/headlines.nvim'
+-- Obsidian link plugin
+Plug 'epwalsh/obsidian.nvim'
 
 -- Git plugin
 Plug 'lewis6991/gitsigns.nvim'
 -- Git diff
 Plug 'sindrets/diffview.nvim'
 
--- startup page
-Plug 'mhinz/vim-startify'
-
--- Nerdtree 
--- Plug 'preservim/nerdtree'
-
 -- openscad preview 
 Plug 'salkin-mada/openscad.nvim'
 
 -- AI ollama
 Plug 'David-Kunz/gen.nvim'
--- Per telescope gen 
-Plug 'nvim-telescope/telescope-ui-select.nvim'
 
 -- File explorer
 Plug 'stevearc/oil.nvim'
+
+-- UML language
+Plug 'javiorfo/nvim-soil'
+-- Optional for puml syntax highlighting:
+Plug 'javiorfo/nvim-nyctophilia'
 
 -- End plugin system
 vim.call('plug#end')
 
 
 -------- Configuration Files ----------
+
+-- Sturtup page 
+--require('plug.startup')
 
 -- Oil file manager coniguration file 
 require('plug.oil')
@@ -140,6 +154,9 @@ require('plug.vimtex')
 
 -- Telescope configuration file
 require('plug.telescope')
+
+-- UML soil configuration file
+require('plug.soil')
 
 require('gitsigns').setup()
 -- ????? set statusline+=%{get(b:,'gitsigns_status','')}
@@ -164,6 +181,7 @@ require('plug.clangd')
 -- Markdowns configuration file 
 -- lua require('plug.markdown')
 require('plug.headlines')
+require('plug.obsidian')
 -- lua require('plug.undotree')
 
 -- After plugins 
@@ -176,7 +194,7 @@ vim.cmd [[hi ColorColumn cterm=none gui=none guibg=white ctermfg=white]]
 --let g:blamer_enabled = 1  
 --  %a is the day of week, in case it's needed
 --let g:blamer_date_format = '%e %b %Y'
--- highlight Blamer guifg=darkorange
+--vim.cmd [[highlight Blamer guifg=darkorange]]
 
 
 -- netrw config

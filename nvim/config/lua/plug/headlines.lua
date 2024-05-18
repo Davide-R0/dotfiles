@@ -1,5 +1,8 @@
- require("headlines").setup({
-   
+ 
+vim.cmd [[highlight Headline1 guibg=NONE]]
+
+
+require("headlines").setup({
     markdown = {
         query = vim.treesitter.query.parse(
         "markdown",
@@ -24,7 +27,7 @@
         ]]
         ),
         headline_highlights = { 
-            "Headline"
+            "Headline1"
         },-- "Headline" },
         bullet_highlights = {
             "@text.title.1.marker.markdown",
@@ -35,7 +38,7 @@
             "@text.title.6.marker.markdown",
         },
         bullets = { '󰬺 ', '󰬻 ', '󰬼 ', '󰬽 ', '󰬾 ', '󰬿 '},--"◉", "○", "✸", "✿" },
-        codeblock_highlight = "CodeBlock",
+        codeblock_highlight = "Headline1",--CodeBlock",
         dash_highlight = "Dash",
         dash_string = "",
         quote_highlight = "Quote",
