@@ -38,7 +38,11 @@ Dipending by wich program you use:
 
 ## Audio and Audio player
 - PulseAudio (audio manager with GUI)
-- MOC (CLI)
+- MPD audio server
+
+CLI player:
+1. NCMPCPP (CLI)
+2. MOC (CLI)
 
 ## Video player
 1. mpv (CLI)
