@@ -7,8 +7,8 @@ Mirates for Gentoo system, in each folder ther will be a userful `package.use` f
 Order of preference
 
 ## Web browser
-1. qutebrowser (Vim keybindings)
-2. brave, brave-bin (Gentoo)
+1. qutebrowser (Vim keybindings, GUI)
+2. brave, brave-bin (Gentoo, GUI)
 3. elinks (CLI)
 
 ## File manager
@@ -21,7 +21,7 @@ Both userfull:
 - ImageMagick (CLI)
 
 ## Document viewer (pdf, epub, ecc...)
-1. zathura (Vim keybindings, CLI)
+- zathura (Vim keybindings, CLI)
 
 ## Writing tool
 Both userfull:
@@ -42,7 +42,7 @@ Dipending by wich program you use:
 
 CLI player:
 1. NCMPCPP (CLI)
-2. MOC (CLI)
+2. MOC (CLI) (it require an older version of ffmpeg and cause a lot of problems)
 
 ## Video player
 1. mpv (CLI)
@@ -77,10 +77,12 @@ CLI player:
 
 ## Local AI
 (Raccomanded >=16Gb RAM, >=4Gb VRAM Nvidia GPU, 4>=core >=4Ghz CPU, nvidia driver)
-- Ollama with Mistral 7B: general purpuse AI chat
+- Ollama with Mistral 7B: general purpose AI chat
 - Fooocus: AI images generator
 - PrivateGPT: local document (pdf) learner AI chat (with Ollama Mistral 7B + ebbeddings tool)
-- Ollama implementation with Neovim
+- Ollama implementation with Neovim (*Gen* plugin)
+- NeRF with Nerfstudio: render 3D model from 2D video 
+- neuralangelo: render 3D model from 2D video 
 
 ## Root CERN
 C++ data analysis tool.
