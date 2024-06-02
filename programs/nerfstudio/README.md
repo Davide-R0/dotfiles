@@ -16,6 +16,10 @@ Cuda-toolkit:
 
 `conda install -c "nvidia/label/cuda-11.8.0" cuda-toolkit`
 
+(ci potrebbe mettere un po')
+
+(`conda install nvidia/label/cuda-11.8.0::cuda-toolkit`???)
+
 Tiny-cuda-nn
 
 `pip install ninja git+https://github.com/NVlabs/tiny-cuda-nn/#subdirectory=bindings/torch`

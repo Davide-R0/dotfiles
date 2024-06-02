@@ -337,8 +337,8 @@ bindsym Mod4+Print exec --no-startup-id maim -s "/home/$USER/Pictures/screenshot
 bindsym Print exec --no-startup-id maim "/home/$USER/Pictures/screenshot/screenshot_`date +"%d_%b_%T"`.png"
 
 #tmux multiple session <Alt + #>
-#set $tmux1 exec --no-startup-id "tmux has-session -t 1 && i3-sensible-terminal -e 'tmux attach -t 1' || i3-sensible-terminal -e 'tmux new -s 1'"
-#bindsym Mod4+1 $tmux1
+set $tmux1 exec --no-startup-id "tmux has-session -t 1 && i3-sensible-terminal -e 'tmux attach -t 1' || i3-sensible-terminal -e 'tmux new -s 1'"
+bindsym Mod4+1 $tmux1
 #set $tmux2 exec --no-startup-id "tmux has-session -t 2 && i3-sensible-terminal -e 'tmux attach -t 2' || i3-sensible-terminal -e 'tmux new -s 2'"
 #bindsym Mod4+2 $tmux2
 #set $tmux3 exec --no-startup-id "tmux has-session -t 3 && i3-sensible-terminal -e 'tmux attach -t 3' || i3-sensible-terminal -e 'tmux new -s 3'"

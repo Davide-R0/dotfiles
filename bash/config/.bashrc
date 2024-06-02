@@ -65,9 +65,9 @@ source ~/.config/bash/.git-prompt.sh
 export GIT_PS1_SHOWDIRTYSTATE=1
 
 # VIM MODE
-#if [[ $- == *i* ]]; then # in interactive session
-#  set -o vi
-#fi
+if [[ $- == *i* ]]; then # in interactive session
+  set -o vi
+fi
 
 ################## ALIAS ##################
 # Kitty
@@ -87,6 +87,7 @@ alias ip='ip -color=auto'
 #momentanei
 alias SDL='cd ~/Documents/programming/SDL-Tutorial'
 alias CUDA='cd ~/Documents/programming/CUDA-Tutorial'
+alias CPP='cd ~/Documents/programming/Cpp-Tutorial'
 alias HIP='cd ~/Documents/programming/HIP'
 
 alias BMDA='cd ~/Documents/project/BMDA/v0.1'
@@ -95,6 +96,12 @@ alias sim='cd ~/Documents/project/simulator'
 
 alias TCF='cd ~/Desktop/uni/TCF'
 
+alias AINO='cd ~/Documents/project/aino/Aino'
+
+
+alias get_idf='. $HOME/Code/esp/esp-idf/export.sh'
+
+alias env_conda='eval "$(/home/davide/anaconda3/bin/conda shell.bash hook)"'
 #appimage
 alias nvtop='/home/davide/Code/nvtop-x86_64.AppImage'
 
@@ -119,7 +126,10 @@ export PATH="$PATH:/home/davide/.local/share/nvim/ext-plugged/ltex-ls-16.0.0/bin
 export PATH="/home/davide/.local/bin:$PATH"
 #Cargo 
 export PATH="$PATH:/home/davide/.cargo/bin"
-
+#CUDA
+export CUDA_HOME="/opt/cuda"
+export LD_LIBRARY_PATH="$LD_LIBRARY_PATH:/opt/cuda/lib64:/opt/cuda/extras/CUPTI/lib64"
+export PATH="$PATH:$CUDA_HOME/bin"
 
 # Add the following line at the end of bashrc
 [[ ${BLE_VERSION-} ]] && ble-attach

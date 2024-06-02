@@ -1,6 +1,5 @@
 -- Setup language servers.
 
-
 --Enable (broadcasting) snippet capability for completion (for html lsp)
 local capabilities = vim.lsp.protocol.make_client_capabilities()
 capabilities.textDocument.completion.completionItem.snippetSupport = true
@@ -68,17 +67,17 @@ lspconfig.ltex.setup({
 lspconfig.bashls.setup({
   capabilities = lsp_capabilities,
 })       -- Bash
-lspconfig.tsserver.setup({
-  capabilities = lsp_capabilities,
-})     -- JavaScript o TypeScript
+--lspconfig.tsserver.setup({
+--  capabilities = lsp_capabilities,
+--})     -- JavaScript o TypeScript
 
-lspconfig.fortls.setup({
+--lspconfig.fortls.setup({
     --cmd = {"fortls"};
-	 capabilities = lsp_capabilities,
+--	 capabilities = lsp_capabilities,
 
     --filetypes = {"fortran"};
 	--root_dir = lspconfig.util.root_pattern(".git",".fortls")
-})     -- fortrain
+--})     -- fortrain
 lspconfig.asm_lsp.setup({
   capabilities = lsp_capabilities,
 })     -- assembly
