@@ -1,4 +1,4 @@
--inserire le segunti righe nel file init.vim:
+-SCENE_TAG tag, scene* sceneinserire le segunti righe nel file init.vim:
   "prnter setup
   nnoremap <leader><leader><leader>pp :r !echo; lpstat -p \| sed 's/printer //g' \| sed 's/i
   nnoremap <leader><leader><leader>ph :w<cr>:!lpoptions -d HP_Smart_Tank_7000<cr>:!lp -n 1 -

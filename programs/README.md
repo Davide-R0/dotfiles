@@ -93,5 +93,7 @@ C++ data analysis tool.
 ## Copy-Paste utility
 - XClip
 
-
+## Rescue deleted files
+Use `testdisk`.
+Open it, select the hardisk and choose the partitioning system, select `advanced` settings and then select the box `undelete`. Then copy the deleted file where you want.
 

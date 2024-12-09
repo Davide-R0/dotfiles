@@ -23,6 +23,20 @@
 #ble.sh colors personalization:
 source "$HOME/.config/ble/color_ble.sh"
 
+
+####################
+#pywal
+##################
+
+# Import colorscheme from 'wal' asynchronously
+# &   # Run the process in the background.
+# ( ) # Hide shell job control messages.
+# Not supported in the "fish" shell.
+#(cat ~/.cache/wal/sequences &)
+
+####################
+
+
 #autodetect usb
 devmon 2>&1 > /dev/null &
 
@@ -69,6 +83,13 @@ if [[ $- == *i* ]]; then # in interactive session
   set -o vi
 fi
 
+# nvim manpager
+# export MANPAGER='nvim +Man!'
+
+#fzf
+# Set up fzf key bindings and fuzzy completion
+eval "$(fzf --bash)"
+
 ################## ALIAS ##################
 # Kitty
 #alias kdiff='kitten diff'
@@ -78,7 +99,7 @@ fi
 alias ls='ls -a --color=auto' 
 alias diff='diff --color=auto'
 alias grep='grep --color=auto'
-alias ip='ip -color=auto'
+alias ip='ip --color=auto'
 
 #export LESS='-R --use-color -Dd+r$Du+b$'
 #export MANPAGER="less -R --use-color -Dd+r -Du+b"
@@ -89,25 +110,26 @@ alias SDL='cd ~/Documents/programming/SDL-Tutorial'
 alias CUDA='cd ~/Documents/programming/CUDA-Tutorial'
 alias CPP='cd ~/Documents/programming/Cpp-Tutorial'
 alias HIP='cd ~/Documents/programming/HIP'
-
 alias BMDA='cd ~/Documents/project/BMDA/v0.1'
-
+alias thy='cd ~/Desktop/theory'
 alias sim='cd ~/Documents/project/simulator'
-
-alias TCF='cd ~/Desktop/uni/TCF'
-
+#alias TCF='cd ~/Desktop/uni/TCF'
 alias AINO='cd ~/Documents/project/aino/Aino'
-
-
+alias CG='cd ~/Documents/project/cliGame'
 alias get_idf='. $HOME/Code/esp/esp-idf/export.sh'
-
 alias env_conda='eval "$(/home/davide/anaconda3/bin/conda shell.bash hook)"'
 #appimage
 alias nvtop='/home/davide/Code/nvtop-x86_64.AppImage'
 
 #vari
 alias nv='nvim'
+
+alias ge='cd ~/Documents/project/gameEngine'
+alias wsge='cd ~/Documents/project/ApateEngine; ./ws-ge.sh'
 #alias fman='compgen -c | fzf | xargs man'
+
+alias setcapsesc='setxkbmap -option caps:escape'
+alias resetcapsesc='setxkbmap -option'
 
 ################### NNN ##################
 #export NNN_OPTS="e" # H: see hide files
@@ -123,13 +145,17 @@ export NNN_BMS="s:$HOME/Desktop/;d:$HOME/Documents/;D:$HOME/Downloads/;m:/run/me
 #Latex lsp
 export PATH="$PATH:/home/davide/.local/share/nvim/ext-plugged/ltex-ls-16.0.0/bin"
 #Local bin 
-export PATH="/home/davide/.local/bin:$PATH"
+export PATH="$PATH:$HOME/.local/bin/"
 #Cargo 
 export PATH="$PATH:/home/davide/.cargo/bin"
 #CUDA
 export CUDA_HOME="/opt/cuda"
 export LD_LIBRARY_PATH="$LD_LIBRARY_PATH:/opt/cuda/lib64:/opt/cuda/extras/CUPTI/lib64"
 export PATH="$PATH:$CUDA_HOME/bin"
+# Local npm 
+export PATH="$PATH:$HOME/node_modules/.bin"
+export NODE_PATH=$NODE_PATH:"$HOME/.npm/lib/node_modules"
+
 
 # Add the following line at the end of bashrc
 [[ ${BLE_VERSION-} ]] && ble-attach

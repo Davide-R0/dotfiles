@@ -20,7 +20,10 @@
 Xft.antialias: true
 Xft.hinting: true
 Xft.rgba: rgb
-Xft.autohint: true
+
+!cause problems
+!Xft.autohint: true
+
 Xft.hintstyle: hintfull
 Xft.lcdfilter: lcdfilter
 
@@ -28,39 +31,51 @@ Xft.lcdfilter: lcdfilter
 !Mwm*XTerm.clientDecoration: none
 
 !external border
-XTerm*BorderWidth: 0
+!XTerm
+*BorderWidth: 0
 !internal Border 
-XTerm*internalBorder: 5 
+!XTerm
+*internalBorder: 5 
 
 !niente barra di scorrimento
-xterm*scrollBar: false
+!xterm
+*scrollBar: false
 
 ! http://invisible-island.net/xterm/xterm.faq.html#tiny_menus
 !dimensione predefinita
 !XTerm.vt100.geometry: 89x29
 
 !modalità UTF-8 permanente
-XTerm*utf8: 2
-XTerm*locale: true
+!XTerm
+*utf8: 2
+!XTerm
+*locale: true
 
 !256 colori
-xterm*termName: xterm-256color
+!xterm
+*termName: xterm-256color
 
 !numero di linee da mantenere nello scrollbuffer
-XTerm*saveLines: 7000
+!XTerm
+*saveLines: 10000 
 
 !############################################################
 !#################### Font setting ##########################
 !############################################################
 
-XTerm*faceName: Hack Nerd Font Mono:antialias=true
+!XTerm
+*faceName: Hack Nerd Font Mono:antialias=true
 !Important Mono fonts otherwise the icons will be cut
 !other option:
 !Agave Nerd Font Mono
 
-XTerm*activeIcon: true 
-XTerm*renderFont: true
-XTerm*faceSize: 11.2
+!XTerm
+*activeIcon: true 
+!XTerm
+*renderFont: true
+!XTerm
+*faceSize: 12
+!11.2
 !XTerm*font: -*-*-medium-r-normal--*-140-*-*-m-*-*-?
 
 !Line spacing
@@ -116,7 +131,7 @@ XTerm*charClass: 33:48,35:48,37:48,43:48,45-47:48,64:48,95:48,126:48,35:48,58:48
 
 !black
 *color0:	#282828 
-*color8:	#1d2021 
+*color8:	#504945 
 
 !red
 *color1:	#fb4934 

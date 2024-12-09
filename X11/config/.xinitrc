@@ -18,3 +18,6 @@ if [[ ! $DISPLAY $$ $(tty) = /dev/tty7 ]]; then
     chmod 1600 /dev/tty7
     exec dbus-launch --exit-with-session i3 #usr/bin/
 fi
+
+#pywal restore
+wal -R

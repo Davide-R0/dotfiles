@@ -56,12 +56,8 @@ set.showcmd = true
 -- Hilight matching parentesis..
 set.showmatch = true
 
--- Status line visible
---set.laststatus = 2
---set.statusline = "%f"
-
 -- clipboard initialization
---set.clipboard += "unnamedplus"
+set.clipboard = "unnamedplus"
 
 -- Enable standard hilighting of text
 vim.syntax = "on"
@@ -86,8 +82,12 @@ vim.g['loaded_perl_provider'] = 0
 vim.g['loaded_ruby_provider'] = 0
 
 -- Terminal choose
+-- Ricontrollare
 vim.cmd[[ 
-  let term_program=$TERM_PROGRAM
+let term_program=$TERM_PROGRAM
 ]]
 
-
+-- glsl hiligting
+vim.cmd[[ 
+autocmd! BufNewFile,BufRead *.vs,*.fs,*.cp,*.vert,*.frag,*.comp set ft=glsl
+]]

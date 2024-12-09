@@ -53,6 +53,8 @@ bindsym XF86AudioLowerVolume exec --no-startup-id pactl set-sink-volume @DEFAULT
 bindsym XF86AudioMute exec --no-startup-id pactl set-sink-mute @DEFAULT_SINK@ toggle && $refresh_i3status
 bindsym XF86AudioMicMute exec --no-startup-id pactl set-source-mute @DEFAULT_SOURCE@ toggle && $refresh_i3status
 
+
+
 # use these keys for focus, movement, and resize directions when reaching for
 # the arrows is not convenient
 # changed set in vim-like keybindings
@@ -292,7 +294,11 @@ exec_always --no-startup-id picom --config ~/.config/picom/picom.conf
 #exec_always --no-startup-id xrandr --dpi 94
 
 #wallpapers with nitrogen 
-exec nitrogen --restore
+#exec nitrogen --restore
+
+#feh backgroung
+exec --no-startup-id feh --bg-fill ~/Pictures/Wallpapers/midnight-reflections-moonlit-sea.jpg
+#beach-waves-night.jpg
 
 # Border window
 #for_window [class=".*"] border pixel 2

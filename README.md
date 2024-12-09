@@ -4,6 +4,11 @@ Dotfiles and system configuration for GNU/linux
 
 There will be even a basic usage explanation of all the tools.
 
+> To map the capsLock key as esc key in linux (for nvim):
+> `setxkbmap -option caps:escape`
+> To restore default keybindings:
+> `setxkbmap -option caps:escape`
+
 > There are still many things to fix.
 
 The *config* of programs not used are in `programs/` folder. A list of other useful general programs are in the `README.md` of the same folder.
