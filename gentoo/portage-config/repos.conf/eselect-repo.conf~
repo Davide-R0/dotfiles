@@ -1,0 +1,6 @@
+# created by eselect-repo
+
+[brave-overlay]
+location = /var/db/repos/brave-overlay
+sync-type = git
+sync-uri = https://gitlab.com/lason.oliveira/brave-overlay.git

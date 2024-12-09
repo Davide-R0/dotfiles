@@ -4,3 +4,196 @@
 # required by media-libs/sdl2-ttf-2.22.0::gentoo
 # required by media-libs/sdl2-ttf (argument)
 >=media-libs/freetype-2.13.2 harfbuzz
+# required by dev-libs/roct-thunk-interface-5.7.1-r1::gentoo
+# required by dev-util/hip-5.7.1-r2::gentoo
+# required by dev-util/hip (argument)
+>=x11-libs/libdrm-2.4.120 video_cards_amdgpu
+
+
+# required by sys-devel/lld-17.0.6::gentoo
+# required by dev-libs/rocm-comgr-5.7.1::gentoo
+# required by dev-util/hip-5.7.1-r2::gentoo
+# required by dev-util/hip (argument)
+#>=sys-devel/llvm-17.0.6 -debug
+# required by media-gfx/graphviz-9.0.0::gentoo
+# required by media-gfx/plantuml-1.2024.4::gentoo
+# required by media-gfx/plantuml (argument)
+>=media-libs/gd-2.3.3-r4 fontconfig truetype
+# required by media-gfx/blender-3.6.8::gentoo[ffmpeg]
+# required by blender (argument)
+>=media-video/ffmpeg-6.1.1-r5 theora vorbis xvid opus vpx mp3 x264
+media-libs/opencolorio -opengl
+
+
+#for python legacy:
+# required by dev-python/setuptools-69.5.1-r1::gentoo
+# required by dev-python/docopt-0.6.2-r5::gentoo
+# required by sys-fs/udiskie-2.5.2::gentoo
+# required by @selected
+# required by @world (argument)
+>=dev-python/platformdirs-4.2.2 python_targets_python3_11
+# required by dev-python/setuptools-69.5.1-r1::gentoo
+# required by dev-python/docopt-0.6.2-r5::gentoo
+# required by sys-fs/udiskie-2.5.2::gentoo
+# required by @selected
+# required by @world (argument)
+>=dev-python/setuptools-scm-8.1.0 python_targets_python3_11
+# required by net-print/hplip-3.23.12-r1::gentoo[snmp,-minimal]
+# required by @selected
+# required by @world (argument)
+>=net-dns/avahi-0.9_rc1 python_single_target_python3_11
+# required by dev-python/setuptools-scm-8.1.0::gentoo
+# required by dev-python/PyQt-builder-1.16.2::gentoo
+# required by dev-python/PyQt6-6.7.0::gentoo
+# required by dev-python/PyQt6-WebEngine-6.7.0::gentoo
+# required by www-client/qutebrowser-3.1.0-r1::gentoo[python_single_target_python3_12,qt6]
+# required by @selected
+# required by @world (argument)
+>=dev-python/packaging-24.0 python_targets_python3_11
+# required by dev-python/docopt-0.6.2-r5::gentoo
+# required by sys-fs/udiskie-2.5.2::gentoo
+# required by @selected
+# required by @world (argument)
+>=dev-python/setuptools-69.5.1-r1 python_targets_python3_11
+# required by dev-python/pyyaml-6.0.1-r1::gentoo
+# required by sys-fs/udiskie-2.5.2::gentoo
+# required by @selected
+# required by @world (argument)
+>=dev-python/gpep517-16 python_targets_python3_11
+# required by dev-python/packaging-24.0::gentoo
+# required by dev-python/pyproject-metadata-0.8.0::gentoo
+# required by dev-python/meson-python-0.16.0-r1::gentoo
+# required by dev-python/numpy-1.26.4::gentoo
+# required by sci-physics/root-6.32.00::gentoo[python_single_target_python3_12,tmva]
+# required by @selected
+# required by @world (argument)
+>=dev-python/flit-core-3.9.0 python_targets_python3_11
+# required by dev-python/gpep517-16::gentoo
+# required by dev-python/pyproject-metadata-0.8.0::gentoo
+# required by dev-python/meson-python-0.16.0-r1::gentoo
+# required by dev-python/numpy-1.26.4::gentoo
+# required by sci-physics/root-6.32.00::gentoo[python_single_target_python3_12,tmva]
+# required by @selected
+# required by @world (argument)
+>=dev-python/installer-0.7.0 python_targets_python3_11
+# required by dev-python/setuptools-69.5.1-r1::gentoo
+# required by dev-python/commonmark-0.9.1-r1::gentoo
+# required by dev-python/recommonmark-0.7.1-r1::gentoo
+# required by sys-devel/clang-17.0.6::gentoo[python_single_target_python3_12,doc]
+# required by @selected
+# required by @world (argument)
+>=dev-python/jaraco-text-3.12.0 python_targets_python3_11
+# required by dev-python/setuptools-69.5.1-r1::gentoo
+# required by dev-python/commonmark-0.9.1-r1::gentoo
+# required by dev-python/recommonmark-0.7.1-r1::gentoo
+# required by sys-devel/clang-17.0.6::gentoo[python_single_target_python3_12,doc]
+# required by @selected
+# required by @world (argument)
+>=dev-python/more-itertools-10.2.0 python_targets_python3_11
+# required by dev-python/setuptools-69.5.1-r1::gentoo
+# required by dev-python/commonmark-0.9.1-r1::gentoo
+# required by dev-python/recommonmark-0.7.1-r1::gentoo
+# required by sys-devel/clang-17.0.6::gentoo[python_single_target_python3_12,doc]
+# required by @selected
+# required by @world (argument)
+>=dev-python/ordered-set-4.1.0 python_targets_python3_11
+# required by dev-python/setuptools-69.5.1-r1::gentoo
+# required by dev-python/commonmark-0.9.1-r1::gentoo
+# required by dev-python/recommonmark-0.7.1-r1::gentoo
+# required by sys-devel/clang-17.0.6::gentoo[python_single_target_python3_12,doc]
+# required by @selected
+# required by @world (argument)
+>=dev-python/wheel-0.43.0 python_targets_python3_11
+# required by dev-python/jaraco-text-3.12.0::gentoo
+# required by dev-python/setuptools-69.5.1-r1::gentoo
+# required by dev-python/commonmark-0.9.1-r1::gentoo
+# required by dev-python/recommonmark-0.7.1-r1::gentoo
+# required by sys-devel/clang-17.0.6::gentoo[python_single_target_python3_12,doc]
+# required by @selected
+# required by @world (argument)
+>=dev-python/jaraco-context-5.3.0 python_targets_python3_11
+# required by dev-python/jaraco-text-3.12.0::gentoo
+# required by dev-python/setuptools-69.5.1-r1::gentoo
+# required by dev-python/commonmark-0.9.1-r1::gentoo
+# required by dev-python/recommonmark-0.7.1-r1::gentoo
+# required by sys-devel/clang-17.0.6::gentoo[python_single_target_python3_12,doc]
+# required by @selected
+# required by @world (argument)
+>=dev-python/jaraco-functools-4.0.1 python_targets_python3_11
+
+
+# required by net-print/hplip-3.23.12-r3::gentoo[-minimal,snmp]
+# required by @selected
+# required by @world (argument)
+#>=net-dns/avahi-0.9_rc1 dbus
+# required by dev-qt/qtwayland-6.7.1::gentoo
+# required by dev-util/nvidia-cuda-toolkit-12.4.1::gentoo[nsight]
+# required by @selected
+# required by @world (argument)
+>=dev-qt/qtbase-6.7.1 wayland
+# required by dev-python/jaraco-context-5.3.0::gentoo[-python_targets_python3_10,python_targets_python3_11]
+# required by dev-python/jaraco-text-3.12.0::gentoo
+# required by dev-python/setuptools-70.0.0::gentoo
+# required by dev-python/pycairo-1.26.0::gentoo
+# required by dev-python/pygobject-3.46.0::gentoo[cairo]
+# required by sys-libs/libblockdev-3.0.4::gentoo[python_single_target_python3_12]
+# required by sys-fs/udisks-2.10.1::gentoo
+# required by sys-fs/udiskie-2.5.3::gentoo
+# required by @selected
+# required by @world (argument)
+>=dev-python/backports-tarfile-1.2.0 python_targets_python3_11
+# required by dev-python/setuptools-72.1.0::gentoo
+# required by dev-python/uc-micro-py-1.0.3::gentoo
+# required by dev-python/linkify-it-py-2.0.3::gentoo
+# required by dev-python/markdown-it-py-3.0.0::gentoo
+# required by dev-python/mdit-py-plugins-0.4.1::gentoo
+# required by dev-python/myst-parser-3.0.1::gentoo
+# required by sys-devel/clang-18.1.8::gentoo[python_single_target_python3_12,doc]
+# required by sys-devel/clang-common-18.1.8-r1::gentoo
+>=dev-python/trove-classifiers-2024.7.2 python_targets_python3_11
+# required by net-print/hplip-3.23.12-r3::gentoo
+# required by @selected
+# required by @world (argument)
+>=net-analyzer/net-snmp-5.9.4 python_single_target_python3_11
+# required by net-dns/avahi-0.9_rc1::gentoo[python,python_single_target_python3_11,introspection]
+# required by net-print/hplip-3.23.12-r3::gentoo[snmp,-minimal]
+# required by @selected
+# required by @world (argument)
+>=dev-python/pygobject-3.46.0-r1 python_targets_python3_11
+# required by net-print/hplip-3.23.12-r3::gentoo[-minimal,qt5,python_single_target_python3_11]
+# required by @selected
+# required by @world (argument)
+# move dev-python/PyQt5 dev-python/pyqt5
+>=dev-python/pyqt5-5.15.11 python_targets_python3_11
+# required by dev-python/PyQt5-5.15.11::gentoo
+# required by net-print/hplip-3.23.12-r3::gentoo[-minimal,qt5,python_single_target_python3_11]
+# required by @selected
+# required by @world (argument)
+# move dev-python/PyQt5-sip dev-python/pyqt5-sip
+>=dev-python/pyqt5-sip-12.15.0 python_targets_python3_11
+# required by dev-python/PyQt5-5.15.11::gentoo
+# required by net-print/hplip-3.23.12-r3::gentoo[-minimal,qt5,python_single_target_python3_11]
+# required by @selected
+# required by @world (argument)
+# move dev-python/PyQt-builder dev-python/pyqt-builder
+>=dev-python/pyqt-builder-1.16.4 python_targets_python3_11
+# required by dev-python/PyQt5-5.15.11::gentoo
+# required by net-print/hplip-3.23.12-r3::gentoo[-minimal,qt5,python_single_target_python3_11]
+# required by @selected
+# required by @world (argument)
+>=dev-python/sip-6.8.6-r1 python_targets_python3_11
+# required by dev-python/pygobject-3.46.0-r1::gentoo[cairo]
+# required by net-dns/avahi-0.9_rc1::gentoo[introspection,python_single_target_python3_11,python]
+# required by net-print/hplip-3.23.12-r3::gentoo[snmp,-minimal]
+# required by @selected
+# required by @world (argument)
+>=dev-python/pycairo-1.26.1 python_targets_python3_11
+# required by media-sound/ardour-8.6-r1::gentoo
+# required by media-sound/ardour (argument)
+>=sci-libs/fftw-3.3.10 threads
+# required by media-sound/ardour-8.6-r1::gentoo
+# required by media-sound/ardour (argument)
+>=media-libs/suil-0.10.20 gtk2
+# required by media-gfx/gimp-2.10.38-r1::gentoo
+# required by media-gfx/gimp (argument)
+>=media-libs/gegl-0.4.48 cairo

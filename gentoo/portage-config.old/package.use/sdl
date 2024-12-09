@@ -1,0 +1,5 @@
+#media-libs/libsdl
+#media-libs/libsdl2
+#media-libs/sdl-image gif jpeg png webp tiff 
+media-libs/sdl2-image gif jpeg png webp tiff avif
+#media-libs/sdl2-ttf 

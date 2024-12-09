@@ -1,0 +1,13 @@
+media-gfx/blender cuda cycles-bin-kernels man
+# required by media-gfx/blender-3.6.8::gentoo
+# required by media-gfx/blender (argument)
+>=media-libs/freetype-2.13.2 brotli
+# required by media-gfx/blender-3.6.8::gentoo[ffmpeg]
+# required by media-gfx/blender (argument)
+#>=media-video/ffmpeg-6.1.1-r5 vpx vorbis x264 opus xvid theora
+# required by media-gfx/blender-3.6.8::gentoo[ffmpeg]
+# required by media-gfx/blender (argument)
+#=media-video/ffmpeg-4.4.4-r9 theora vorbis x264 vpx opus xvid
+# required by media-gfx/blender-3.6.8::gentoo[ffmpeg]
+# required by blender (argument)
+#=media-video/ffmpeg-4.4.4-r9 xvid vorbis theora x264 vpx opus #USE flags aggiunte nel file di ffmpeg

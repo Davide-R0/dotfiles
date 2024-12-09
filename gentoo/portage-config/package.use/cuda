@@ -1,1 +1,1 @@
-dev-util/nvidia-cuda-toolkit debugger examples profiler
+dev-util/nvidia-cuda-toolkit debugger nsight examples profiler sanitizer

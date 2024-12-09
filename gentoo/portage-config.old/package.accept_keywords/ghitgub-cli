@@ -1,0 +1,4 @@
+#not take live ebuild
+#<dev-util/github-cli-9999 **
+#acept latest version
+dev-util/github-cli ~amd64

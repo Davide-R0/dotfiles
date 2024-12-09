@@ -1,0 +1,4 @@
+sci-physics/root debug
+# required by sci-physics/root-6.30.06::gentoo[asimage]
+# required by sci-physics/root (argument)
+>=media-libs/libafterimage-1.20-r6 jpeg gif tiff png

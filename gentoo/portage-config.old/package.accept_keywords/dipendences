@@ -1,0 +1,6 @@
+#For brave-browser 
+#not take live ebuild
+<dev-libs/libpthread-stubs-9999 **
+#acept latest version
+dev-libs/libpthread-stubs **
+

@@ -1,0 +1,4 @@
+sci-electronics/kicad examples -telemetry test
+#for additional packages:
+#sci-electronics/kicad-meta
+#>=app-doc/kicad-doc-7.0.10 html pdf l10n_en

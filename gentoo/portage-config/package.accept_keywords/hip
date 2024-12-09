@@ -1,0 +1,8 @@
+dev-util/hip ~amd64
+dev-util/hipcc ~amd64
+dev-util/rocminfo ~amd64
+dev-libs/rocm-comgr ~amd64
+dev-libs/rocr-runtime ~amd64
+dev-perl/URI-Encode ~amd64
+dev-libs/roct-thunk-interface ~amd64
+dev-libs/rocm-device-libs ~amd64

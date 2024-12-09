@@ -5,8 +5,7 @@ www-client/qutebrowser adblock pdf
 # required by dev-python/PyQt6-WebEngine-6.6.0::gentoo[widgets]
 # required by www-client/qutebrowser-3.1.0::gentoo[python_single_target_python3_11,qt6]
 # required by www-client/qutebrowser (argument)
-# move dev-python/PyQt6 dev-python/pyqt6
->=dev-python/pyqt6-6.6.1 qml webchannel
+>=dev-python/PyQt6-6.6.1 qml webchannel
 # required by dev-qt/qtwebengine-6.7.0::gentoo
 # required by dev-python/PyQt6-WebEngine-6.6.0::gentoo
 # required by www-client/qutebrowser-3.1.0::gentoo[python_single_target_python3_11,qt6]
