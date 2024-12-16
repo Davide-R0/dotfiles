@@ -1,0 +1,22 @@
+[font]
+size = 12.5
+
+[font.normal]
+family = "Helvetica Neue Regular"
+style = "Regular"
+
+[font.bold]
+family = "Helvetica Neue Bold"
+style = "Bold"
+
+[font.italic]
+family = "Helvetica Neue Italic"
+style = "Italic"
+
+
+[window.padding]
+x = 1
+y = 1 
+
+[window]
+dynamic_padding = true

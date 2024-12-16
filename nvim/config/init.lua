@@ -30,7 +30,7 @@ Plug 'mhinz/vim-startify'
 -- Lualine 
 Plug 'nvim-lualine/lualine.nvim'
 -- If you want to have icons in your statusline
-Plug 'nvim-tree/nvim-web-devicons'
+Plug 'nvim-tree/nvim-web-devicons'  -- :NvimWebDeviconsHiTest   to see all the icons
 --Plug 'itchyny/lightline.vim' --(alternative)
 --Plug 'feline-nvim/feline.nvim' --(alternative)
 
@@ -90,12 +90,15 @@ Plug 'lervag/vimtex'
 -- markdown preview (install nodejs and yarn)
 Plug('iamcco/markdown-preview.nvim', { ["do"] = 'cd app && npx --yes yarn install' })
 -- headlines markdowns
-Plug 'MeanderingProgrammer/markdown.nvim'
-Plug 'lukas-reineke/headlines.nvim'
+--Plug 'MeanderingProgrammer/markdown.nvim'
+Plug 'MeanderingProgrammer/render-markdown.nvim' --new
+-- Old:
+--Plug 'lukas-reineke/headlines.nvim'
+
 -- Markdown tables formatting
-Plug 'Kicamon/markdown-table-mode.nvim'
+--Plug 'Kicamon/markdown-table-mode.nvim'
 -- Obsidian link plugin
-Plug 'epwalsh/obsidian.nvim'
+--Plug 'epwalsh/obsidian.nvim'
 
 -- Git plugin (for managing commits, ecc...)
 Plug 'lewis6991/gitsigns.nvim'
@@ -137,7 +140,6 @@ Plug( 'timtro/glslView-nvim', { ["ft"] = 'glsl'})
 
 -- End plugin system
 vim.call('plug#end')
-
 
 -------- Configuration Files ----------
 
@@ -187,10 +189,10 @@ require('plug.vsnip')
 require('plug.clangd')
 
 -- Markdowns configuration file 
-require('plug.headlines')
-require('plug.obsidian')
--- Markdown table setup
-require('markdown-table-mode').setup()
+--require('plug.headlines') -- old:
+--require('plug.obsidian')
+require('plug.render-markdown')
+require('plug.markdown-preview')
 
 -- Doxygen setup
 require('plug.doxygen')
@@ -202,16 +204,24 @@ require('glslView').setup {
 }
 
 -- After plugins 
-vim.cmd [[colorscheme gruvbox]]
+vim.cmd [[colorscheme catppuccin-frappe]]
 vim.cmd [[set background=dark]]    -- Setting dark mode
 
 -- Show character column
 vim.cmd [[hi ColorColumn cterm=none gui=none guibg=white ctermfg=white]]
 
 -- Remove background in window
+-- Add new if necessary
 vim.cmd [[
 hi Normal guibg=NONE ctermbg=NONE
 hi NormalFloat guibg=NONE ctermbg=NONE
 hi FloatBorder guibg=NONE ctermbg=NONE
+hi NormalNC guibg=NONE ctermbg=NONE 
+hi Comment guibg=NONE ctermbg=NONE 
+hi Constant guibg=NONE ctermbg=NONE 
+hi Special guibg=NONE ctermbg=NONE 
+hi Identifier guibg=NONE ctermbg=NONE 
+hi Statement guibg=NONE ctermbg=NONE
+hi EndOfBuffer guibg=NONE ctermbg=NONE 
 ]]
 

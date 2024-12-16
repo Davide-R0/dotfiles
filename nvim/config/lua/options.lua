@@ -9,7 +9,7 @@ set.undodir = os.getenv("HOME") .. "/.config/undodir/"
 set.undofile = true
 
 -- for obsidian preview
-set.conceallevel = 1
+--set.conceallevel = 1
 
 -- Number line option
 set.nu = true
@@ -40,7 +40,7 @@ set.termguicolors = true
 
 --Scrolling setting
 set.scrolloff = 5 --lascia sempre un offset di righe
---vim.signcolumn = true --Attivazione barra sinistra per gli errori e vari (magari non necessaio)
+vim.signcolumn = true --Attivazione barra sinistra per gli errori e vari (magari non necessaio)
 
 -- Setting backspace key like delite
 --set.backspace = "indent", "eol", "start"
@@ -68,7 +68,7 @@ vim.foldnestmax = 1
 vim.foldlevelstart = 1
 
 -- Set scrool number line
-vim.scrolloff = 2
+--vim.scrolloff = 2
 
 ---- Standard setup ----
 

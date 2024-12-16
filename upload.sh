@@ -23,6 +23,5 @@ echo "rofi uploaded!"
 cp -r ~/.config/tmux/tmux.conf tmux/config/
 echo "tmux uploaded!"
 ############ xterm ##############
-cp ~/.Xresources xterm/config/
-echo "xterm uploaded!"
-
+cp -r ~/.config/alacritty/. alacritty/config/
+echo "alacritty uploaded!"

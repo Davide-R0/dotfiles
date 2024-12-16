@@ -54,11 +54,11 @@ fi
 ########## Put your fun stuff here #########
 
 ############## SYSTEM VARIABLE #############
-export TERM=xterm-256color
+export TERM=alacritty
 export SHELL=bash
 export CLICOLOR=TRUE
 export EDITOR='/usr/bin/nvim'
-export TERMINAL=xterm
+export TERMINAL=alacritty
 #export DISPLAY='localhost:10.0'
 
 ######## CUSTOM PROMPT COMMAND LINE #########

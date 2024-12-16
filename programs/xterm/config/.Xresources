@@ -1,0 +1,173 @@
+!##########################################################################################
+!#                                                                                        #
+!#   ██╗  ██╗██████╗ ███████╗███████╗ ██████╗ ██╗   ██╗██████╗  ██████╗███████╗███████╗   #
+!#   ╚██╗██╔╝██╔══██╗██╔════╝██╔════╝██╔═══██╗██║   ██║██╔══██╗██╔════╝██╔════╝██╔════╝   #
+!#    ╚███╔╝ ██████╔╝█████╗  ███████╗██║   ██║██║   ██║██████╔╝██║     █████╗  ███████╗   #
+!#    ██╔██╗ ██╔══██╗██╔══╝  ╚════██║██║   ██║██║   ██║██╔══██╗██║     ██╔══╝  ╚════██║   #
+!#   ██╔╝ ██╗██║  ██║███████╗███████║╚██████╔╝╚██████╔╝██║  ██║╚██████╗███████╗███████║   #
+!#   ╚═╝  ╚═╝╚═╝  ╚═╝╚══════╝╚══════╝ ╚═════╝  ╚═════╝ ╚═╝  ╚═╝ ╚═════╝╚══════╝╚══════╝   #
+!#                                                                                        #
+!##########################################################################################
+
+!To source this file:
+!   xrdb .Xresources
+
+!############################################################
+!##################### General setting ######################
+!############################################################
+!Xft.dpi: 120
+!change dpi
+Xft.antialias: true
+Xft.hinting: true
+Xft.rgba: rgb
+
+!cause problems
+!Xft.autohint: true
+
+Xft.hintstyle: hintfull
+Xft.lcdfilter: lcdfilter
+
+!???
+!Mwm*XTerm.clientDecoration: none
+
+!       !external border
+!       !XTerm
+!       *BorderWidth: 0
+!       !internal Border 
+!       !XTerm
+!       *internalBorder: 5 
+!       
+!       !niente barra di scorrimento
+!       !xterm
+!       *scrollBar: false
+!       
+!       ! http://invisible-island.net/xterm/xterm.faq.html#tiny_menus
+!       !dimensione predefinita
+!       !XTerm.vt100.geometry: 89x29
+!       
+!       !modalità UTF-8 permanente
+!       !XTerm
+!       *utf8: 2
+!       !XTerm
+!       *locale: true
+!       
+!       !256 colori
+!       !xterm
+!       !*termName: xterm-256color
+!       
+!       !numero di linee da mantenere nello scrollbuffer
+!       !XTerm
+!       *saveLines: 10000 
+!       
+!       !############################################################
+!       !#################### Font setting ##########################
+!       !############################################################
+!       
+!       !XTerm
+!       *faceName: Hack Nerd Font:antialias=true
+!       !Important Mono fonts otherwise the icons will be cut
+!       !other option:
+!       !Agave Nerd Font Mono
+!       
+!       !XTerm
+!       *activeIcon: true 
+!       !XTerm
+!       *renderFont: true
+!       !XTerm
+!       *faceSize: 13
+!       !11.2
+!       !XTerm*font: -*-*-medium-r-normal--*-140-*-*-m-*-*-?
+!       
+!       !Line spacing
+!       !xterm*scaleHeight: 1.1
+!       
+!       !############################################################
+!       !###################### KeyBindings #########################
+!       !############################################################
+!       
+!       !Alt key beavior
+!       XTerm.vt100.metaSendsEscape: true
+!       
+!       !Clipboard setting 
+!       XTerm.vt100.selectToClipboard: true
+!       <Btn1Up>: select-end(PRIMARY, CLIPBOARD, CUT_BUFFER0)
+!       xterm*VT100.Translations: #override \
+!                        Ctrl Shift <Key>V:    insert-selection(CLIPBOARD) \n\
+!                        Ctrl Shift <Key>C:    copy-selection(CLIPBOARD)
+!       
+!       !le combinazioni di tasti con Meta (Alt) vengono convertite in una sequenza ad 8-bit,
+!       !necessario affinché ad esempio si possa usare alt-numero per spostarsi tra le finestre in irssi
+!       XTerm*metaSendsEscape: true
+!       
+!       !seleziona solo il testo di una riga, omettendo gli spazi vuoti
+!       XTerm*highlightSelection: true
+!       
+!       !in combinazione con l opzione precedente tenta di 
+!       !rimuovere gli spazi in eccesso a inizio e fine riga
+!       XTerm*trimSelection: true
+!       
+!       !il triplo click per selezionare una riga non include il Newline
+!       !(\n, la sequenza che manda a capo la riga, si veda man echo) alla fine
+!       XTerm*cutNewline: false
+!       
+!       !i caratteri da includere nella selezione del testo con il doppio click
+!       !sono gruppi di numeri nella forma codice:valore e divisi da una virgola,
+!       !il 48 è arbitrario ma il manuale lo usa come esempio e ci affidiamo a questo valore
+!       !per aggiungere e modificare usare quindi la forma codice:48,
+!       !vedere man xterm | less -p 'CHARACTER CLASSES' per la tabella di riferimento
+!       !prendendo ad esempio il primo gruppo 33:48, 33 equivale al punto esclamativo
+!       XTerm*charClass: 33:48,35:48,37:48,43:48,45-47:48,64:48,95:48,126:48,35:48,58:48,63:48,61:48,44:48,38:48,59:48
+!       
+!############################################################
+!################ ColorScheme Gruvbox dark ##################
+!############################################################
+
+!colore di sfondo
+*background: #1d2021
+
+!colore del testo
+*foreground: #fbf1c7
+!#ffffff
+
+!black
+*color0:	#282828 
+*color8:	#504945 
+
+!red
+*color1:	#fb4934 
+*color9:	#cc241d
+
+!green
+*color2:	#b8bb26
+*color10:	#98971a 
+
+!yellow
+*color3:	#fabd2f
+*color11:	#d79921
+
+!blue
+*color4:	#83a598
+*color12:	#458588
+
+!magenta
+*color5:	#d3869b
+*color13:	#b16286
+
+!cyan
+*color6:	#8ec07c
+*color14:	#689d6a
+
+!white
+*color7:	#fbf1c7
+*color15:	#FFFFFF
+
+!colore del cursore
+!XTerm*cursorColor: darkorange1
+
+!abilita e specifica un attributo colore per il testo in grassetto
+!xterm*colorBDMode: true
+!xterm*colorBD: khaki
+
+!abilita e specifica un attributo colore per il testo sottolineato
+!xterm*colorULMode: true
+!xterm*colorUL: tomato
