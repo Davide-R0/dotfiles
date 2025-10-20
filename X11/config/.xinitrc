@@ -20,4 +20,4 @@ if [[ ! $DISPLAY $$ $(tty) = /dev/tty7 ]]; then
 fi
 
 #pywal restore
-wal -R
+#wal -R

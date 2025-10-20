@@ -3,6 +3,19 @@
 -- Author: lokesh-krishna
 -- MIT license, see LICENSE for more details.
 
+--For parrot implementation
+-- define function and formatting of the information
+local function parrot_status()
+    local status_info = require("parrot.config").get_status_info()
+    local status = ""
+    if status_info.is_chat then
+        status = status_info.prov.chat.name
+    else
+        status = status_info.prov.command.name
+    end
+    return string.format("%s (%s)", status, status_info.model)
+end
+
 -- stylua: ignore
 local colors = {
     blue   = '#80a0ff',
@@ -36,13 +49,15 @@ local bubbles_theme = {
 require('lualine').setup {
     options = {
         icons_enabled = true,
+        --theme = 'onedark',
         theme = bubbles_theme,
         component_separators = '',
         section_separators = { left = '', right = '' },
     },
     sections = {
         lualine_a = { 
-            { 'mode', right_padding = 2 } 
+            { 'mode', right_padding = 2 },
+
         },
         lualine_b = { 
             'filename', 
@@ -50,67 +65,69 @@ require('lualine').setup {
             'diff', 
             'diagnostics',
         },
-            lualine_c = {
-                {'filename', path = 1},
-                '%=', --[[ add your center compoentnts here in place of this comment ]]
-            },
-            lualine_x = { 'encoding', 'fileformat', 'filetype'},
-            lualine_y = { 'progress' },
-            lualine_z = { { 'location', left_padding = 2 }, },
+        lualine_c = {
+            
+            {'filename', path = 1},
+            '%=', --[[ add your center compoentnts here in place of this comment ]]
+            
         },
-        inactive_sections = {
-            lualine_a = { 'filename' },
-            lualine_b = {},
-            lualine_c = {},
-            lualine_x = {},
-            lualine_y = {},
-            lualine_z = { 'location' },
-        },
-        tabline = {},
-        extensions = {'oil', 'fzf', 'fugitive', 'nvim-dap-ui'},
-    }
+        lualine_x = { { parrot_status },'encoding', 'fileformat', 'filetype'},
+        lualine_y = { 'progress',  },
+        lualine_z = { { 'location', left_padding = 2 }, },
+    },
+    inactive_sections = {
+        lualine_a = { 'filename' },
+        lualine_b = {},
+        lualine_c = {},
+        lualine_x = {},
+        lualine_y = {},
+        lualine_z = { 'location' },
+    },
+    tabline = {},
+    extensions = {'oil', 'fzf', 'fugitive', 'nvim-dap-ui'},
+}
 
 
-    --default config
-    --[[
-    require('lualine').setup {
-        options = {
-            icons_enabled = true,
-            theme = 'auto',     --'gruvbox' 
-            component_separators = { left = '', right = ''},
-            section_separators = { left = '', right = ''},
-            disabled_filetypes = {
-                statusline = {},
-                winbar = {},
-            },
-            ignore_focus = {},
-            always_divide_middle = true,
-            always_show_tabline = true,
-            globalstatus = false,
-            refresh = {
-                statusline = 100,
-                tabline = 100,
-                winbar = 100,
-            }
+--default config
+--[[
+require('lualine').setup {
+    options = {
+        icons_enabled = true,
+        theme = 'auto',     --'gruvbox' 
+        component_separators = { left = '', right = ''},
+        section_separators = { left = '', right = ''},
+        disabled_filetypes = {
+            statusline = {},
+            winbar = {},
         },
-        sections = {
-            lualine_a = {'mode'},
-            lualine_b = {'branch', 'diff', 'diagnostics'},
-            lualine_c = {'filename'},
-            lualine_x = {'encoding', 'fileformat', 'filetype'},
-            lualine_y = {'progress'},
-            lualine_z = {'location'}
-        },
-        inactive_sections = {
-            lualine_a = {},
-            lualine_b = {},
-            lualine_c = {'filename'},
-            lualine_x = {'location'},
-            lualine_y = {},
-            lualine_z = {}
-        },
-        tabline = {},
-        winbar = {},
-        inactive_winbar = {},
-        extensions = {}
-    } ]]--
+        ignore_focus = {},
+        always_divide_middle = true,
+        always_show_tabline = true,
+        globalstatus = false,
+        refresh = {
+            statusline = 100,
+            tabline = 100,
+            winbar = 100,
+        }
+    },
+    sections = {
+        lualine_a = {'mode'},
+        lualine_b = {'branch', 'diff', 'diagnostics'},
+        lualine_c = {'filename'},
+        lualine_x = {'encoding', 'fileformat', 'filetype'},
+        lualine_y = {'progress'},
+        lualine_z = {'location'}
+    },
+    inactive_sections = {
+        lualine_a = {},
+        lualine_b = {},
+        lualine_c = {'filename'},
+        lualine_x = {'location'},
+        lualine_y = {},
+        lualine_z = {}
+    },
+    tabline = {},
+    winbar = {},
+    inactive_winbar = {},
+    extensions = {}
+} ]]--

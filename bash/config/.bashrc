@@ -20,6 +20,7 @@
 [[ $- == *i* ]] &&
   source "$HOME/.local/share/blesh/ble.sh" --attach=none
 
+
 #ble.sh colors personalization:
 source "$HOME/.config/ble/color_ble.sh"
 
@@ -90,6 +91,8 @@ fi
 # Set up fzf key bindings and fuzzy completion
 eval "$(fzf --bash)"
 
+
+
 ################## ALIAS ##################
 # Kitty
 #alias kdiff='kitten diff'
@@ -119,13 +122,15 @@ alias CG='cd ~/Documents/project/cliGame'
 alias get_idf='. $HOME/Code/esp/esp-idf/export.sh'
 alias env_conda='eval "$(/home/davide/anaconda3/bin/conda shell.bash hook)"'
 #appimage
-alias nvtop='/home/davide/Code/nvtop-x86_64.AppImage'
+alias nvtop='/home/davide/Code/nvtop-x86_64.AppImage &'
+alias openscad='/home/davide/Code/OpenSCAD-2024.11.14.ai21205-x86_64.AppImage'
 
 #vari
 alias nv='nvim'
 
 alias ge='cd ~/Documents/project/gameEngine'
 alias wsge='cd ~/Documents/project/ApateEngine; ./ws-ge.sh'
+alias nbc='cd ~/Code/llvm-project/llvm/projects/NebulaCompiler'
 #alias fman='compgen -c | fzf | xargs man'
 
 alias setcapsesc='setxkbmap -option caps:escape'
@@ -147,7 +152,7 @@ export PATH="$PATH:/home/davide/.local/share/nvim/ext-plugged/ltex-ls-16.0.0/bin
 #Local bin 
 export PATH="$PATH:$HOME/.local/bin/"
 #Cargo 
-export PATH="$PATH:/home/davide/.cargo/bin"
+export PATH="$PATH:$HOME/.cargo/bin"
 #CUDA
 export CUDA_HOME="/opt/cuda"
 export LD_LIBRARY_PATH="$LD_LIBRARY_PATH:/opt/cuda/lib64:/opt/cuda/extras/CUPTI/lib64"
@@ -156,6 +161,34 @@ export PATH="$PATH:$CUDA_HOME/bin"
 export PATH="$PATH:$HOME/node_modules/.bin"
 export NODE_PATH=$NODE_PATH:"$HOME/.npm/lib/node_modules"
 
+#npm global
+export PATH="$PATH:$HOME/.npm-global/bin"
+
+# GO
+export PATH="$PATH:$HOME/go/bin"
+
+# to start may be needed: 'sudo /etc/init.d/postgresql-17 start'
+alias postgresSQLStart='sudo rc-service postgresql-17 start'    
+# alternative command: '/usr/lib64/postgresql-17/bin/pg_ctl -D /var/lib/postgresql/17/data -l logfile start'
+alias postgresSQLStop='sudo rc-service postgresql-17 stop'
+
+#Docker
+alias dockerStart='sudo rc-service docker start'
+alias dockerRedistry='sudo rc-service registry start'
+alias dockerStop='sudo rc-service docker stop'
+alias dockerNetworking='sudo sysctl net.ipv4.ip_forward=1'
+
+
+alias restartAudio='killall -9 qpwgraph && killall -9 wireplumber && killall -9 pipewire && killall -9 pipewire-pulse && /usr/bin/gentoo-pipewire-launcher &' # To check if it works: `wpctl status`
+# Lean bin directory
+#source $HOME/.elan/env
+
+#zoxide
+eval "$(zoxide init bash)"
 
 # Add the following line at the end of bashrc
 [[ ${BLE_VERSION-} ]] && ble-attach
+
+. "$HOME/.local/bin/env"
+
+source '/home/davide/.bash_completions/open-webui.sh'

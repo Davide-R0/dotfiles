@@ -1,6 +1,10 @@
 -- Per le funzioni set...=... in .vim
 local set = vim.opt
 
+-- This is necessary to make nvim expand the bash aliases when it execute commands
+vim.o.shell = "bash"
+vim.o.shellcmdflag = "-c"
+
 -- On saving files
 set.backup = false 
 set.swapfile = false 

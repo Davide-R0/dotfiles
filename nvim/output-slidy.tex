@@ -1,0 +1,408 @@
+% Options for packages loaded elsewhere
+\PassOptionsToPackage{unicode}{hyperref}
+\PassOptionsToPackage{hyphens}{url}
+\documentclass[
+]{article}
+\usepackage{xcolor}
+\usepackage{amsmath,amssymb}
+\setcounter{secnumdepth}{-\maxdimen} % remove section numbering
+\usepackage{iftex}
+\ifPDFTeX
+  \usepackage[T1]{fontenc}
+  \usepackage[utf8]{inputenc}
+  \usepackage{textcomp} % provide euro and other symbols
+\else % if luatex or xetex
+  \usepackage{unicode-math} % this also loads fontspec
+  \defaultfontfeatures{Scale=MatchLowercase}
+  \defaultfontfeatures[\rmfamily]{Ligatures=TeX,Scale=1}
+\fi
+\usepackage{lmodern}
+\ifPDFTeX\else
+  % xetex/luatex font selection
+\fi
+% Use upquote if available, for straight quotes in verbatim environments
+\IfFileExists{upquote.sty}{\usepackage{upquote}}{}
+\IfFileExists{microtype.sty}{% use microtype if available
+  \usepackage[]{microtype}
+  \UseMicrotypeSet[protrusion]{basicmath} % disable protrusion for tt fonts
+}{}
+\makeatletter
+\@ifundefined{KOMAClassName}{% if non-KOMA class
+  \IfFileExists{parskip.sty}{%
+    \usepackage{parskip}
+  }{% else
+    \setlength{\parindent}{0pt}
+    \setlength{\parskip}{6pt plus 2pt minus 1pt}}
+}{% if KOMA class
+  \KOMAoptions{parskip=half}}
+\makeatother
+\usepackage{color}
+\usepackage{fancyvrb}
+\newcommand{\VerbBar}{|}
+\newcommand{\VERB}{\Verb[commandchars=\\\{\}]}
+\DefineVerbatimEnvironment{Highlighting}{Verbatim}{commandchars=\\\{\}}
+% Add ',fontsize=\small' for more characters per line
+\newenvironment{Shaded}{}{}
+\newcommand{\AlertTok}[1]{\textcolor[rgb]{1.00,0.00,0.00}{\textbf{#1}}}
+\newcommand{\AnnotationTok}[1]{\textcolor[rgb]{0.38,0.63,0.69}{\textbf{\textit{#1}}}}
+\newcommand{\AttributeTok}[1]{\textcolor[rgb]{0.49,0.56,0.16}{#1}}
+\newcommand{\BaseNTok}[1]{\textcolor[rgb]{0.25,0.63,0.44}{#1}}
+\newcommand{\BuiltInTok}[1]{\textcolor[rgb]{0.00,0.50,0.00}{#1}}
+\newcommand{\CharTok}[1]{\textcolor[rgb]{0.25,0.44,0.63}{#1}}
+\newcommand{\CommentTok}[1]{\textcolor[rgb]{0.38,0.63,0.69}{\textit{#1}}}
+\newcommand{\CommentVarTok}[1]{\textcolor[rgb]{0.38,0.63,0.69}{\textbf{\textit{#1}}}}
+\newcommand{\ConstantTok}[1]{\textcolor[rgb]{0.53,0.00,0.00}{#1}}
+\newcommand{\ControlFlowTok}[1]{\textcolor[rgb]{0.00,0.44,0.13}{\textbf{#1}}}
+\newcommand{\DataTypeTok}[1]{\textcolor[rgb]{0.56,0.13,0.00}{#1}}
+\newcommand{\DecValTok}[1]{\textcolor[rgb]{0.25,0.63,0.44}{#1}}
+\newcommand{\DocumentationTok}[1]{\textcolor[rgb]{0.73,0.13,0.13}{\textit{#1}}}
+\newcommand{\ErrorTok}[1]{\textcolor[rgb]{1.00,0.00,0.00}{\textbf{#1}}}
+\newcommand{\ExtensionTok}[1]{#1}
+\newcommand{\FloatTok}[1]{\textcolor[rgb]{0.25,0.63,0.44}{#1}}
+\newcommand{\FunctionTok}[1]{\textcolor[rgb]{0.02,0.16,0.49}{#1}}
+\newcommand{\ImportTok}[1]{\textcolor[rgb]{0.00,0.50,0.00}{\textbf{#1}}}
+\newcommand{\InformationTok}[1]{\textcolor[rgb]{0.38,0.63,0.69}{\textbf{\textit{#1}}}}
+\newcommand{\KeywordTok}[1]{\textcolor[rgb]{0.00,0.44,0.13}{\textbf{#1}}}
+\newcommand{\NormalTok}[1]{#1}
+\newcommand{\OperatorTok}[1]{\textcolor[rgb]{0.40,0.40,0.40}{#1}}
+\newcommand{\OtherTok}[1]{\textcolor[rgb]{0.00,0.44,0.13}{#1}}
+\newcommand{\PreprocessorTok}[1]{\textcolor[rgb]{0.74,0.48,0.00}{#1}}
+\newcommand{\RegionMarkerTok}[1]{#1}
+\newcommand{\SpecialCharTok}[1]{\textcolor[rgb]{0.25,0.44,0.63}{#1}}
+\newcommand{\SpecialStringTok}[1]{\textcolor[rgb]{0.73,0.40,0.53}{#1}}
+\newcommand{\StringTok}[1]{\textcolor[rgb]{0.25,0.44,0.63}{#1}}
+\newcommand{\VariableTok}[1]{\textcolor[rgb]{0.10,0.09,0.49}{#1}}
+\newcommand{\VerbatimStringTok}[1]{\textcolor[rgb]{0.25,0.44,0.63}{#1}}
+\newcommand{\WarningTok}[1]{\textcolor[rgb]{0.38,0.63,0.69}{\textbf{\textit{#1}}}}
+\usepackage{longtable,booktabs,array}
+\usepackage{calc} % for calculating minipage widths
+% Correct order of tables after \paragraph or \subparagraph
+\usepackage{etoolbox}
+\makeatletter
+\patchcmd\longtable{\par}{\if@noskipsec\mbox{}\fi\par}{}{}
+\makeatother
+% Allow footnotes in longtable head/foot
+\IfFileExists{footnotehyper.sty}{\usepackage{footnotehyper}}{\usepackage{footnote}}
+\makesavenoteenv{longtable}
+\usepackage{graphicx}
+\makeatletter
+\newsavebox\pandoc@box
+\newcommand*\pandocbounded[1]{% scales image to fit in text height/width
+  \sbox\pandoc@box{#1}%
+  \Gscale@div\@tempa{\textheight}{\dimexpr\ht\pandoc@box+\dp\pandoc@box\relax}%
+  \Gscale@div\@tempb{\linewidth}{\wd\pandoc@box}%
+  \ifdim\@tempb\p@<\@tempa\p@\let\@tempa\@tempb\fi% select the smaller of both
+  \ifdim\@tempa\p@<\p@\scalebox{\@tempa}{\usebox\pandoc@box}%
+  \else\usebox{\pandoc@box}%
+  \fi%
+}
+% Set default figure placement to htbp
+\def\fps@figure{htbp}
+\makeatother
+\setlength{\emergencystretch}{3em} % prevent overfull lines
+\providecommand{\tightlist}{%
+  \setlength{\itemsep}{0pt}\setlength{\parskip}{0pt}}
+\usepackage{bookmark}
+\IfFileExists{xurl.sty}{\usepackage{xurl}}{} % add URL line breaks if available
+\urlstyle{same}
+\hypersetup{
+  hidelinks,
+  pdfcreator={LaTeX via pandoc}}
+
+\author{}
+\date{}
+
+\begin{document}
+
+\begin{itemize}
+\tightlist
+\item
+  Colorscheme: \texttt{catppuccin-frappe}
+\item
+  markdown renderer: \texttt{render-markdown.nvim}
+\item
+  markdown preview: \texttt{preview-markdown.nvim}
+\end{itemize}
+
+\section{shdka j}\label{shdka-j}
+
+\subsection{sd a}\label{sd-a}
+
+\subsubsection{asd asd}\label{asd-asd}
+
+\paragraph{asdasd}\label{asdasd}
+
+\subparagraph{sajdhas}\label{sajdhas}
+
+ajs hda
+
+\begin{center}\rule{0.5\linewidth}{0.5pt}\end{center}
+
+\begin{center}\rule{0.5\linewidth}{0.5pt}\end{center}
+
+con l'implementazione di cmp ha completamento automatico sia delle
+liste, dei callouts, e dei blocchi di codice
+
+\subsection{Liste:}\label{liste}
+
+\begin{itemize}
+\tightlist
+\item
+  ad sahd
+
+  \begin{itemize}
+  \tightlist
+  \item
+    sjd a
+
+    \begin{itemize}
+    \tightlist
+    \item
+      askdlj
+
+      \begin{itemize}
+      \tightlist
+      \item
+        ajshd
+      \end{itemize}
+    \end{itemize}
+  \end{itemize}
+\item[$\square$]
+  Task to do
+
+  \begin{itemize}
+  \tightlist
+  \item
+    {[}-{]} Task work in progress
+  \item[$\boxtimes$]
+    Task done
+  \end{itemize}
+\item
+  {[}\textasciitilde{]} Custom one
+\end{itemize}
+
+\begin{quote}
+dasjhd sjkshd sakjhd kjashdksja
+dhshhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhjhhhhhhhhhhkaj
+shdkj askjdh ksjahd asdsadsad
+\end{quote}
+
+\paragraph{Codes}\label{codes}
+
+\texttt{Inline\ code}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\BuiltInTok{print}\NormalTok{(}\StringTok{"Hello !"}\NormalTok{)}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\KeywordTok{def}\NormalTok{ main() }\OperatorTok{{-}\textgreater{}} \VariableTok{None}\NormalTok{:}
+    \BuiltInTok{print}\NormalTok{(}\StringTok{"Hello, World!"}\NormalTok{)}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\KeywordTok{fn}\NormalTok{ main() }\OperatorTok{\{}
+    \PreprocessorTok{println!}\NormalTok{(}\StringTok{"Hello, World!"}\NormalTok{)}\OperatorTok{;}
+\OperatorTok{\}}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\FunctionTok{ls} \AttributeTok{{-}ad}\NormalTok{ ./}
+\FunctionTok{sudo}\NormalTok{ mount /dev/sda /mnt/myusb}
+\end{Highlighting}
+\end{Shaded}
+
+\subsubsection{Callouts}\label{callouts}
+
+This should be displayed even in markdown exporters
+
+Importante: dopo il {[}!..{]} non lasciare spazi vuoti
+
+\begin{quote}
+{[}!NOTE{]} prova nota with \textgreater{}
+\end{quote}
+
+\begin{quote}
+{[}!TIP{]} prova nota with \textgreater{}
+\end{quote}
+
+\begin{quote}
+{[}!IMPORTANT{]} sd as
+\end{quote}
+
+\begin{quote}
+{[}!WARNING{]} sadsd
+\end{quote}
+
+\begin{quote}
+{[}!CAUTION{]} sd sa
+\end{quote}
+
+\begin{quote}
+{[}!ABSTRACT{]} skdj as
+\end{quote}
+
+\begin{quote}
+{[}!SUMMARY{]} asdh as
+\end{quote}
+
+\begin{quote}
+{[}!TLDR{]} sad s
+\end{quote}
+
+\begin{quote}
+{[}!INFO{]} sdj hsa
+\end{quote}
+
+\begin{quote}
+{[}!TODO{]} sa djhas
+\end{quote}
+
+\begin{quote}
+{[}!HINT{]} sada sd
+\end{quote}
+
+\begin{quote}
+{[}!SUCCESS{]} sjadhas
+\end{quote}
+
+\begin{quote}
+{[}!CHECK{]} jkh sad
+\end{quote}
+
+\begin{quote}
+{[}!DONE{]} kj sdas
+\end{quote}
+
+\begin{quote}
+{[}!QUESTION{]} hasdk j
+\end{quote}
+
+\begin{quote}
+{[}!HELP{]} jshd s ad
+\end{quote}
+
+\begin{quote}
+{[}!FAQ{]} jh sadh
+\end{quote}
+
+\begin{quote}
+{[}!ATTENTION{]} sh sad
+\end{quote}
+
+\begin{quote}
+{[}!FAILURE{]} jshdj h
+\end{quote}
+
+\begin{quote}
+{[}!FAIL{]} jkash dasjh
+\end{quote}
+
+\begin{quote}
+{[}!MISSING{]} jh asjhd
+\end{quote}
+
+\begin{quote}
+{[}!DANGER{]} hg ksaas
+\end{quote}
+
+\begin{quote}
+{[}!ERROR{]} jhsa kd
+\end{quote}
+
+\begin{quote}
+{[}!BUG{]} jkh as d
+\end{quote}
+
+\begin{quote}
+{[}!EXAMPLE{]} jh asd
+\end{quote}
+
+\begin{quote}
+{[}!QUOTE{]} sadjsa d
+\end{quote}
+
+\begin{quote}
+{[}!CITE{]} jh sakdjh
+\end{quote}
+
+\paragraph{Links}\label{links}
+
+
+\begin{itemize}
+\item
+  \begin{figure}
+  \centering
+  \caption{Image}
+  \end{figure}
+\item
+  \href{test.md}{Markdown File}
+\item
+  \href{test.py}{Python File}
+\item
+  \href{https://test.com}{Website}
+\item
+  {[}{[}wikilink{]}{]}
+\item
+  {[}{[}wikilink\textbar Wikilink Alias{]}{]}
+\item
+  {[}Reference{]}{[}example{]}
+\item
+  \href{mailto:user@test.com}{\nolinkurl{user@test.com}}
+\end{itemize}
+
+\subsection{Tabelle}\label{tabelle}
+
+\begin{longtable}[]{@{}ll@{}}
+\toprule\noalign{}
+test! & prova \\
+\midrule\noalign{}
+\endhead
+\bottomrule\noalign{}
+\endlastfoot
+ciao & coamskdj alkjsd \\
+\end{longtable}
+
+\subparagraph{Markdown preview}\label{markdown-preview}
+
+\texttt{:MarkdownPreviewStart} @startuml Bob -\textgreater{} Alice :
+hello @enduml
+
+.
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\NormalTok{Bob {-}\textgreater{} Alice : hello}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\NormalTok{gantt}
+\NormalTok{    dateFormat DD{-}MM{-}YYY}
+\NormalTok{    axisFormat \%m/\%y}
+
+\NormalTok{    title Example}
+\NormalTok{    section example section}
+\NormalTok{    activity :active, 01{-}02{-}2019, 03{-}08{-}2019}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\SpecialStringTok{$$ a\^{}3 }\SpecialCharTok{\textbackslash{}sqrt}\SpecialStringTok{\{as\} $$}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{quote}
+provasdjh asjdh d jas s dksaj ldajsd s a dskd j sdhs
+\end{quote}
+
+\end{document}

@@ -48,12 +48,11 @@ exec --no-startup-id xss-lock --transfer-sleep-lock -- i3lock --nofork
 # and nm-applet is a desktop environment-independent system tray GUI for it.
 #exec --no-startup-id nm-applet
 
-# Use pactl to adjust volume in PulseAudio.
-set $refresh_i3status killall -SIGUSR1 i3status
-bindsym XF86AudioRaiseVolume exec --no-startup-id pactl set-sink-volume @DEFAULT_SINK@ +5% && $refresh_i3status
-bindsym XF86AudioLowerVolume exec --no-startup-id pactl set-sink-volume @DEFAULT_SINK@ -5% && $refresh_i3status
-bindsym XF86AudioMute exec --no-startup-id pactl set-sink-mute @DEFAULT_SINK@ toggle && $refresh_i3status
-bindsym XF86AudioMicMute exec --no-startup-id pactl set-source-mute @DEFAULT_SOURCE@ toggle && $refresh_i3status
+# Use pactl to adjust volume in PipeWire.
+bindsym XF86AudioRaiseVolume exec --no-startup-id wpctl set-volume @DEFAULT_AUDIO_SINK@ 5%+ 
+bindsym XF86AudioLowerVolume exec --no-startup-id wpctl set-volume @DEFAULT_AUDIO_SINK@ 5%- 
+bindsym XF86AudioMute exec --no-startup-id wpctl set-mute @DEFAULT_SINK@ toggle 
+#bindsym XF86AudioMicMute exec --no-startup-id pactl set-source-mute @DEFAULT_SOURCE@ toggle && $refresh_i3status
 
 
 
@@ -297,10 +296,10 @@ exec_always --no-startup-id picom --config ~/.config/picom/picom.conf
 #exec_always --no-startup-id xrandr --dpi 94
 
 #wallpapers with nitrogen 
-#exec nitrogen --restore
+exec nitrogen --restore
 
 #feh backgroung
-exec --no-startup-id feh --bg-fill ~/Pictures/Wallpapers/midnight-reflections-moonlit-sea.jpg
+#exec --no-startup-id feh --bg-fill ~/Pictures/Wallpapers/midnight-reflections-moonlit-sea.jpg
 #beach-waves-night.jpg
 
 # Border window
@@ -326,9 +325,14 @@ for_window [floating] border pixel 0
 #client.focused #ffffff00 #1d2021 #ffffff00 #2e9ef4 #1d2021 
 title_align center
 
+#Integration of rofi with pass
+#bindsym Mod4+p exec /usr/bin/rofi-pass
+bindsym $mod+p exec "~/.config/i3/scripts/passScript.sh"
+
+
 # Personalized command (with win key)
 bindsym Mod4+o exec qutebrowser
-bindsym Mod4+p exec --no-startup-id i3-sensible-terminal -e 'source .zshrc && nnn -e' 
+#bindsym Mod4+p exec --no-startup-id i3-sensible-terminal -e 'source .zshrc && nnn -e' 
 bindsym Mod4+k exec brave-bin
 bindsym Mod4+l exec thunar
 # to deactivate trasparency (to reactivate Alt+Shift+r)
@@ -336,14 +340,24 @@ bindsym Mod4+u exec pkill picom
 # Neovim schortcut
 bindsym Mod4+n exec --no-startup-id i3-sensible-terminal -e nvim
 
+# Config files
+bindsym Mod4+c exec --no-startup-id "~/.config/i3/scripts/config_files_menu.sh"
+
 #Aggiungere la possibilità di aprire velocemente una chat con mistral
 #bindsym Mod4+y exec --no-startup-id i3-sensible-terminal -e 'ollama serve' && i3-sensible-terminal -e 'ollama run mistral'
 
 #Screenshot:
+bindsym Mod4+Print exec "~/.config/i3/scripts/screenshot_menu.sh"
 #Partial screen 
-bindsym Mod4+Print exec --no-startup-id maim -s "/home/$USER/Pictures/screenshot/screenshot_`date +"%d_%b_%T"`.png"
+#bindsym Mod4+Print exec --no-startup-id maim -s "/home/$USER/Pictures/screenshot/screenshot_`date +"%d_%b_%T"`.png"
 #Full screen 
-bindsym Print exec --no-startup-id maim "/home/$USER/Pictures/screenshot/screenshot_`date +"%d_%b_%T"`.png"
+#bindsym Print exec --no-startup-id maim "/home/$USER/Pictures/screenshot/screenshot_`date +"%d_%b_%T"`.png"
+
+#Ask LLM
+bindsym Mod4+a exec "~/.config/i3/scripts/ask_llm.sh"
+#bindsym Mod4+h exec "~/.config/i3/scripts/start_chat.sh"
+#for_window [class="gemini-chat"] floating enable, resize set 1000 600, move position center
+
 
 #tmux multiple session <Alt + #>
 set $tmux1 exec --no-startup-id "tmux has-session -t 1 && i3-sensible-terminal -e 'tmux attach -t 1' || i3-sensible-terminal -e 'tmux new -s 1'"

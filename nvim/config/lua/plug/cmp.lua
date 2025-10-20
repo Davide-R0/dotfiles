@@ -1,59 +1,88 @@
 -- Set up for cmp Completion
-
 local cmp = require('cmp')
+
+--local compare = require('cmp.config.compare')
 
 cmp.setup({
     snippet = {
-        -- REQUIRED - you must specify a snippet engine
         expand = function(args)
-            vim.fn["vsnip#anonymous"](args.body) -- For `vsnip` users.
-            -- require('luasnip').lsp_expand(args.body) -- For `luasnip` users.
-            -- require('snippy').expand_snippet(args.body) -- For `snippy` users.
-            -- vim.fn["UltiSnips#Anon"](args.body) -- For `ultisnips` users.
-            -- vim.snippet.expand(args.body) -- For native neovim snippets (Neovim v0.10+)
+            vim.fn["vsnip#anonymous"](args.body)
         end,
     },
     window = {
-        completion = { -- rounded border; thin-style scrollbar
+        completion = {
             border='rounded',
-            --border = 'shadow',
             winhighlight = "Normal:CmpNormal,FloatBorder:CmpNormal",
-            --scrollbar = '║',
         },
         documentation = {
             border='rounded',
-            --border = 'shadow',
             winhighlight = "Normal:CmpNormal,FloatBorder:CmpNormal",
-            --scrollbar = '║',
         }
-        --completion = cmp.config.window.bordered(),
-        --documentation = cmp.config.window.bordered(),
     },
+
+    
+    -- CORRECTED SOURCES CONFIGURATION
+    sources = cmp.config.sources({
+        { name = 'nvim_lsp' },
+        { name = 'vsnip' },
+        --{ name = 'cmp_ai' },
+        { name = 'render-markdown' },
+        { name = 'parrot' },
+        { name = 'buffer', keyword_length=5 }, -- Combined into one table
+    }),
+
+
     mapping = cmp.mapping.preset.insert({
         ['<C-j>'] = cmp.mapping.select_next_item(),
         ['<C-k>'] = cmp.mapping.select_prev_item(),
         ['<C-Space>'] = cmp.mapping.complete(),
         ['<C-e>'] = cmp.mapping.abort(),
-        ['<C-n>'] = cmp.mapping.confirm({ select = true }), -- Accept currently selected item. Set `select` to `false` to only confirm explicitly selected items.
-        --[[ -- Defaults:
-        ['<C-b>'] = cmp.mapping.scroll_docs(-4),
-        ['<C-f>'] = cmp.mapping.scroll_docs(4),
-        ['<C-Space>'] = cmp.mapping.complete(),
-        ['<C-e>'] = cmp.mapping.abort(),
-        ['<CR>'] = cmp.mapping.confirm({ select = true }), -- Accept currently selected item. Set `select` to `false` to only confirm explicitly selected items.
-        --]]
+        ['<C-n>'] = cmp.mapping.confirm({ select = true }),
+        --[[['<C-x>'] = cmp.mapping.complete({
+            config = {
+                sources = cmp.config.sources({
+                    { name = 'cmp_ai' },
+                }),
+            },
+        }),]]--
     }),
-    sources = cmp.config.sources({
-        { name = 'nvim_lsp' },
-        { name = 'vsnip' }, -- For vsnip users.
-        -- { name = 'luasnip' }, -- For luasnip users.
-        -- { name = 'ultisnips' }, -- For ultisnips users.
-        -- { name = 'snippy' }, -- For snippy users.
-        -- Custom:
-        { name = 'render-markdown' } -- Fro render markdown 
-    }, {
-        { name = 'buffer', keyword_lenght=3 },
-    })
+
+    
+    -- To set the cmp-ai at the top
+    --[[sorting = {
+        priority_weight = 2,
+        comparators = {
+            require('cmp_ai.compare'),
+            compare.offset,
+            compare.exact,
+            compare.score,
+            compare.recently_used,
+            compare.kind,
+            compare.sort_text,
+            compare.length,
+            compare.order,
+        },
+    },]]--
+
+    --[[
+    formatting = {
+        fields = { 'kind', 'abbr', 'menu' },
+        format = function(entry, vim_item)
+            -- Kind icons
+            vim_item.kind = string.format('%s', vim_item.kind)
+            -- Show signature in the menu
+            vim_item.menu = ({
+                nvim_lsp = '[LSP]',
+                buffer = '[Buffer]',
+                vsnip = '[Snippet]',
+            })[entry.source.name]
+
+            -- The 'detail' field we implemented in the LSP will be automatically
+            -- shown by nvim-cmp next to the completion item.
+            return vim_item
+        end,
+    },]]--
+
 })
 
 -- To use git you need to install the plugin petertriho/cmp-git and uncomment lines below
@@ -88,7 +117,10 @@ cmp.setup.cmdline(':', {
     matching = { disallow_symbol_nonprefix_matching = false }
 })
 
---[[ This is done in the lsp config file 
+
+
+--[[
+This is done in the lsp config file 
 -- Set up lspconfig.
 local capabilities = require('cmp_nvim_lsp').default_capabilities()
 -- Replace <YOUR_LSP_SERVER> with each lsp server you've enabled.

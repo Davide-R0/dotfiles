@@ -12,49 +12,96 @@ local lspconfig = require('lspconfig')
 -- For each of this install the relative package on linux
 -- https://github.com/neovim/nvim-lspconfig/blob/master/doc/configs.md 
 -- Clangd c/c++/c# (external file configuration) --
-lspconfig.clangd.setup({
+--
+vim.lsp.config('clangd', {
     capabilities = lsp_capabilities,
 })
+vim.lsp.enable('clangd')
+
+
 -- Rust --
-lspconfig.rust_analyzer.setup({
-    capabilities = lsp_capabilities,
-})
--- LaTex --
-lspconfig.ltex.setup({
+local rustup_sysroot_path = "/home/davide/.rustup/toolchains/stable-x86_64-unknown-linux-gnu"
+vim.lsp.config('rust_analyzer', {
+    --on_attach = on_attach,
     capabilities = lsp_capabilities,
     settings = {
-        ltex = {
-            language = "it,en"
+        ['rust-analyzer'] = {
+            cargo = {
+                sysroot = rustup_sysroot_path,
+            }
         }
-    },
-    on_attach = on_attach, 
+    }
 })
+vim.lsp.enable('rust_analyzer')
+
+-- LaTex --
+-- For the installation download the binary and place in an executable path: https://github.com/latex-lsp/texlab
+vim.lsp.config('texlab', {
+    settings = {
+        texlab = {
+            bibtexFormatter = "texlab",
+            build = {
+                args = { "-pdf", "-interaction=nonstopmode", "-synctex=1", "%f" },
+                executable = "latexmk",
+                forwardSearchAfter = false,
+                onSave = false
+            },
+            chktex = {
+                onEdit = false,
+                onOpenAndSave = false
+            },
+            diagnosticsDelay = 300,
+            formatterLineLength = 80,
+            forwardSearch = {
+                args = {}
+            },
+            latexFormatter = "latexindent",
+            latexindent = {
+                modifyLineBreaks = false
+            }
+        }
+    }
+})
+vim.lsp.enable('texlab')
+
 -- Bash --
-lspconfig.bashls.setup({
+vim.lsp.config('bashls', {
     capabilities = lsp_capabilities,
 })
+vim.lsp.enable('bashls')
+
 -- cmake --
-lspconfig.cmake.setup({
+vim.lsp.config('cmake', {
     capabilities = lsp_capabilities,
 })
+vim.lsp.enable('cmake')
+
 -- Openscad --
-lspconfig.openscad_lsp.setup({          
+vim.lsp.config('openscad_lsp', {          
     capabilities = lsp_capabilities,
 })
+vim.lsp.enable('openscad_lsp')
+
 -- Arduino --
-lspconfig.arduino_language_server.setup({
+vim.lsp.config('arduino_language_server', {
     capabilities = lsp_capabilities,
 })
+vim.lsp.enable('arduino_language_server')
+
 -- Assembly --
-lspconfig.asm_lsp.setup({
+vim.lsp.config('asm_lsp', {
     capabilities = lsp_capabilities,
 })
+vim.lsp.enable('asm_lsp')
+
 -- Python --
-lspconfig.pyright.setup({
+vim.lsp.config('pyright', {
     capabilities = lsp_capabilities,
 })
+vim.lsp.enable('pyright')
+
 -- Html/Css/Javascript --
-lspconfig.html.setup({
+vim.lsp.config('html', {
     capabilities = lsp_capabilities_html,
     cmd = { "vscode-html-language-server", "--stdio" },
     filetypes = { "html", "templ" },
@@ -67,6 +114,29 @@ lspconfig.html.setup({
         provideFormatter = true
     }
 })
+vim.lsp.enable('html')
+
+-- Typescript
+vim.lsp.enable('ts_ls')
+
+-- Markdown oxide
+vim.lsp.config('markdown_oxide', { 
+    capabilities = lsp_capabilities_html,
+    -- Ensure that dynamicRegistration is enabled! This allows the LS to take into account actions like the
+    -- Create Unresolved File code action, resolving completions for unindexed code blocks, ...
+    --capabilities = vim.tbl_deep_extend('force', capabilities, {
+    --    workspace = {
+    --        didChangeWatchedFiles = {
+    --            dynamicRegistration = true,
+    --        },
+    --    },
+    --}),
+    on_attach = on_attach
+})
+vim.lsp.enable('markdown_oxide')
+
+
+
 
 -- Global mappings.
 -- See `:help vim.diagnostic.*` for documentation on any of the below functions
@@ -100,9 +170,8 @@ vim.api.nvim_create_autocmd('LspAttach', {
         vim.keymap.set('n', '<space>rn', vim.lsp.buf.rename, opts)
         vim.keymap.set({ 'n', 'v' }, '<space>ca', vim.lsp.buf.code_action, opts)
         vim.keymap.set('n', 'gr', vim.lsp.buf.references, opts)
-        vim.keymap.set('n', '<space>f', function()
-            vim.lsp.buf.format { async = true }
-        end, opts)
-    end,
-})
-
+        --vim.keymap.set('n', '<space>f', function()
+            --    vim.lsp.buf.format { async = true }
+            --end, opts)
+        end,
+    })

@@ -3,6 +3,7 @@ configuration {
 	cycle:                  true;
 	/*font:                 "monospace 10";*/
 	/*combi-modi:           "window,drun,ssh";*/
+    font: "CMU Bright SemiBold 16";
 
 	display-run:            "Run";
 	display-drun:           "Apps";
@@ -13,6 +14,7 @@ configuration {
 	show-icons:             true;
 	/*icon-theme: "Vivid-Dark-Icons";*/
 	
+
 	/*---------- History and Sorting ----------*/
 	disable-history:        false;
 	sorting-method:         "normal";
@@ -20,10 +22,8 @@ configuration {
     
 	click-to-exit:          true;
 	steal-focus:            false;
-    
-}
 
-/*@theme "gruvbox-dark"*/
+}
 
 * {
     selected-normal-foreground:  rgba ( 249, 249, 249, 100 % );
@@ -57,11 +57,12 @@ configuration {
 }
 #window {
     background-color: @background;
-    width:                      30%;
+    width:                      35%;
     margin:                     0px;
-    padding:                    20px;
+    padding:                    25px;
     border:                     0px solid;
     border-radius:              30px;
+    columns: 2;
 }
 #mainbox {
     border:  0;
@@ -81,11 +82,13 @@ configuration {
     border-color: @separatorcolor;
     spacing:      2px ;
     scrollbar:    true;
-    padding:      2px 0px 0px ;
+    padding:      5px 0px 0px ;
+    columns:     2;
 }
 #element {
     border:  0;
-    padding: 1px ;
+    padding: 4px ;
+    border-radius: 30px;
 }
 #element.normal.normal {
     background-color: @normal-background;
@@ -143,7 +146,7 @@ configuration {
     text-color:       @selected-normal-foreground;
 }
 #inputbar {
-    spacing:    0;
+    spacing:    9;
     text-color: @normal-foreground;
     padding:    1px ;
 }
@@ -164,7 +167,7 @@ configuration {
 }
 #textbox-prompt-colon {
     expand:     false;
-    str:        ":";
+    str:        ": ";
     margin:     0px 0.3em 0em 0em ;
     text-color: @normal-foreground;
 }

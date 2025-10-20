@@ -134,12 +134,20 @@ require('render-markdown').setup({
         above = '▄',
         -- Used below code blocks for thin border
         below = '▀',
-        -- Highlight for code blocks
-        highlight = 'RenderMarkdownCode',
-        -- Highlight for inline code
-        highlight_inline = 'RenderMarkdownCodeInline',
-        -- Highlight for language, overrides icon provider value
+        
+        -- Highlight for code blocks.
+        highlight = 'RenderMarkdownCode', --'RenderMarkdownCode',
+        -- Highlight for code info section, after the language.
+        highlight_info = 'RenderMarkdownCode',
+        -- Highlight for language, overrides icon provider value.
         highlight_language = nil,
+        -- Highlight for border, use false to add no highlight.
+        highlight_border = false, --'RenderMarkdownCodeBorder',
+        -- Highlight for language, used if icon provider does not have a value.
+        highlight_fallback = 'RenderMarkdownCodeFallback',
+        -- Highlight for inline code.
+        highlight_inline = 'RenderMarkdownCodeInline',
+
     },
 
     -- Dash lines
@@ -173,10 +181,10 @@ require('render-markdown').setup({
         -- If a function is provided both of these values are passed in using 1 based indexing
         -- If a list is provided we index into it using a cycle based on the level
         -- If the value at that level is also a list we further index into it using a clamp based on the index
-        ordered_icons = function(level, index, value)
-            value = vim.trim(value)
-            local value_index = tonumber(value:sub(1, #value - 1))
-            return string.format('%d.', value_index > 1 and value_index or index)
+        ordered_icons = function(ctx)
+            local value = vim.trim(ctx.value)
+            local index = tonumber(value:sub(1, #value - 1))
+            return string.format('%d.', index > 1 and index or ctx.index)
         end,
         -- Padding to add to the left of bullet point
         left_pad = 0,
@@ -195,10 +203,10 @@ require('render-markdown').setup({
         -- Determines how icons fill the available space:
         --  inline:  underlying text is concealed resulting in a left aligned icon
         --  overlay: result is left padded with spaces to hide any additional text
-        position = 'inline',
+        --position = 'inline',
         unchecked = {
             -- Replaces '[ ]' of 'task_list_marker_unchecked'
-            icon = '󰄱 ',
+            icon = '', --'󰄱 ',
             -- Highlight for the unchecked icon
             highlight = 'RenderMarkdownUnchecked',
             -- Highlight for item associated with unchecked checkbox
@@ -206,7 +214,7 @@ require('render-markdown').setup({
         },
         checked = {
             -- Replaces '[x]' of 'task_list_marker_checked'
-            icon = '󰱒 ',
+            icon = '󰄲', --'󰱒 ',
             -- Highlight for the checked icon
             highlight = 'RenderMarkdownChecked',
             -- Highlight for item associated with checked checkbox
@@ -221,7 +229,7 @@ require('render-markdown').setup({
         --   'highlight':       Highlight for the 'rendered' icon
         --   'scope_highlight': Highlight for item associated with custom checkbox
         custom = {
-            todo = { raw = '[-]', rendered = '󰥔 ', highlight = 'RenderMarkdownTodo', scope_highlight = nil },
+            todo = { raw = '[-]', rendered = '󰥔 ', highlight = 'RenderMarkdownH3', scope_highlight = nil },   --'RenderMarkdownTodo'
             important = { raw = '[~]', rendered = '󰓎 ', highlight = 'DiagnosticWarn' },
         },
     },
